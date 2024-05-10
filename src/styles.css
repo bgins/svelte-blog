@@ -44,6 +44,14 @@ body {
 	margin: 0;
 
 	background-color: #ffffffff;
-	background-image: url('./light-wool.png');
+	background-image: url('/light-wool.png');
 	background-repeat: repeat;
+}
+
+ul > li::before {
+	display: inline-block;
+	padding-right: 6px;
+	transform: translateY(-1px);
+
+	content: '•';
 }
