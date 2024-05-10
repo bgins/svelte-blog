@@ -1,3 +1,5 @@
+@import url('/prism-theme.css');
+
 @font-face {
 	font-family: 'Cousine';
 	src: url('/fonts/cousine-regular-webfont.woff2') format('woff2');
