@@ -18,12 +18,20 @@
 </script>
 
 <script>
+  import { page } from '$app/stores'
   import { formatDate } from '$lib/utils'
+
   /**
    * Post title
    * @type {String}
    */
   export let title
+
+  /**
+   * Post description
+   * @type {String}
+   */
+  export let description
 
   /**
    * Published date
@@ -49,6 +57,22 @@
    */
   export let imageAttribution
 </script>
+
+<svelte:head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}${image}`} />
+  <meta property="og:image:secure_url" content={`${import.meta.env.VITE_ORIGIN}${image}`} />
+  <meta property="og:image:alt" content={imageAlt} />
+  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:description" content={description} />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}${image}`} />
+  <meta property="twitter:image:alt" content={imageAlt} />
+</svelte:head>
 
 <div id="layout">
   <div id="heading">

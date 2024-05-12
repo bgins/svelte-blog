@@ -3,6 +3,7 @@ layout: post
 title: minima
 description: Minima is a minimalist web audio playground
 image: /images/blog/minima/minima.png
+imageAlt: Screenshot of the Minima application
 draft: false
 published: 2017-06-20 PST
 ---

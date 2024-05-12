@@ -18,17 +18,33 @@
 </script>
 
 <script>
+  import { page } from '$app/stores'
+
   /**
-   * Optional page title
+   * Page title
    * @type {String}
    */
   export let title
+  /**
+   * Page description
+   * @type {String}
+   */
+  export let description
 </script>
 
+<svelte:head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:description" content={description} />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+</svelte:head>
+
 <div id="layout">
-  {#if title}
-    <h1>{title}</h1>
-  {/if}
+  <h1>{title}</h1>
 
   <div id="content">
     <slot></slot>

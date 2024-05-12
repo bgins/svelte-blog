@@ -1,4 +1,5 @@
 <script>
+  import { page } from '$app/stores'
   import { formatDate } from '$lib/utils'
 
   /**
@@ -20,6 +21,17 @@
 
   const promise = loadManifest()
 </script>
+
+<svelte:head>
+  <title>Syntactic Overdrive</title>
+  <meta name="description" content="A blog about progamming and music" />
+  <meta property="og:title" content="Syntactic Overdrive" />
+  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:description" content="A blog about progamming and music" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Syntactic Overdrive" />
+  <meta property="twitter:description" content="A blog about progamming and music" />
+</svelte:head>
 
 <div id="layout">
   <h1>Blog</h1>

@@ -3,6 +3,7 @@ layout: post
 title: 'Speaking: On minima'
 description: Preseting Minima at the Functional Programming Study Group
 image: /images/blog/minima/minima.png
+imageAlt: Screenshot of the Minima application
 draft: true
 published: 2017-09-30 PST
 ---

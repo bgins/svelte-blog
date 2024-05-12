@@ -3,6 +3,7 @@ layout: post
 title: Markdown Test
 description: Test of markdown renderer
 image: /images/blog/markdown-test/markdown-test.jpg
+imageAlt: Rustic image of writing implements
 draft: true
 published: 2021-03-06 PST
 ---

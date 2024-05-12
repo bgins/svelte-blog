@@ -3,6 +3,7 @@ layout: post
 title: nginlog
 description: nginlog is an nginx traffic analysis tool
 image: /images/blog/nginlog/nginlog.png
+imageAlt: Screenshot of the nginglog application
 draft: false
 published: 2017-09-09 PST
 ---

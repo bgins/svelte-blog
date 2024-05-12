@@ -3,6 +3,7 @@ layout: post
 title: Moon Flask
 description: Moon Flask was my first web project
 image: /images/blog/moonflask/moonflask.jpg
+imageAlt: Screenshot of Moon Flask data model
 draft: false
 published: 2015-12-19 PST
 ---

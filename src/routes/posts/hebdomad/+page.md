@@ -3,6 +3,7 @@ layout: post
 title: Hebdomad
 description: Hebdomad is a xenharmonic web audio synthesizer
 image: /images/blog/hebdomad/hebdomad.png
+imageAlt: Screenshot of the Hebdomad application
 draft: false
 published: 2017-01-03 PST
 ---

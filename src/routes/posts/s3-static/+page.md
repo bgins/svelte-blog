@@ -3,6 +3,7 @@ layout: post
 title: Deploying elm-pages to S3 Static Hosting
 description: A tutorial on deploying elm-pages to AWS S3 static website hosting.
 image: /images/blog/s3-static-pt1/s3-static.jpg
+imageAlt: Image of floating castle
 imageAttribution: maxizapata of pixabay
 draft: false
 published: 2019-11-02 PST
@@ -82,16 +83,16 @@ policy and replace `amazingdomain.com` with the name of your bucket.
 
 ```json
 {
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Sid": "PublicReadGetObject",
-			"Effect": "Allow",
-			"Principal": "*",
-			"Action": "s3:GetObject",
-			"Resource": "arn:aws:s3:::amazingdomain.com/*"
-		}
-	]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::amazingdomain.com/*"
+    }
+  ]
 }
 ```
 
