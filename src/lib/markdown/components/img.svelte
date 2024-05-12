@@ -3,12 +3,12 @@
    * Image source
    * @type {String}
    */
-  export let src;
+  export let src
   /**
    * Alt text
    * @type {String}
    */
-  export let alt;
+  export let alt
 </script>
 
 <img {src} {alt} />

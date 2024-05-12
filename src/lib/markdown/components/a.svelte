@@ -3,7 +3,7 @@
    * Link URL
    * @type {String}
    */
-  export let href;
+  export let href
 </script>
 
 <a {href} rel="noopener noreferrer" target="_blank">

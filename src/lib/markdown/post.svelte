@@ -13,41 +13,41 @@
     ol,
     p,
     ul
-  } from '$lib/markdown/components';
-  export { a, blockquote, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul };
+  } from '$lib/markdown/components'
+  export { a, blockquote, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul }
 </script>
 
 <script>
-  import { formatDate } from '$lib/utils';
+  import { formatDate } from '$lib/utils'
   /**
    * Post title
    * @type {String}
    */
-  export let title;
+  export let title
 
   /**
    * Published date
    * @type {String}
    */
-  export let published;
+  export let published
 
   /**
    * Heading image source
    * @type {String}
    */
-  export let image;
+  export let image
 
   /**
    * Heading image alt
    * @type {String}
    */
-  export let imageAlt;
+  export let imageAlt
 
   /**
    * Heading image attribution
    * @type {String}
    */
-  export let imageAttribution;
+  export let imageAttribution
 </script>
 
 <div id="layout">

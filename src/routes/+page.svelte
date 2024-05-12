@@ -1,24 +1,24 @@
 <script>
-  import { formatDate } from '$lib/utils';
+  import { formatDate } from '$lib/utils'
 
   /**
    * @param {{ published: string; }} a
    * @param {{ published: string; }} b
    */
   function compareDates(a, b) {
-    return Date.parse(b.published) - Date.parse(a.published);
+    return Date.parse(b.published) - Date.parse(a.published)
   }
 
   async function loadManifest() {
-    const res = await fetch('/manifest.json');
-    const manifest = await res.json();
+    const res = await fetch('/manifest.json')
+    const manifest = await res.json()
 
     return manifest
       .sort(compareDates)
-      .filter((/** @type {{ draft: boolean; }} */ post) => post.draft === false);
+      .filter((/** @type {{ draft: boolean; }} */ post) => post.draft === false)
   }
 
-  const promise = loadManifest();
+  const promise = loadManifest()
 </script>
 
 <div id="layout">

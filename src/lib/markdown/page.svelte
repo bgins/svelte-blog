@@ -13,8 +13,8 @@
     ol,
     p,
     ul
-  } from '$lib/markdown/components';
-  export { a, blockquote, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul };
+  } from '$lib/markdown/components'
+  export { a, blockquote, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul }
 </script>
 
 <script>
@@ -22,7 +22,7 @@
    * Optional page title
    * @type {String}
    */
-  export let title;
+  export let title
 </script>
 
 <div id="layout">
