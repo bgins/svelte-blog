@@ -1,19 +1,19 @@
 <script lang="ts">
-	import '../styles.css';
-	import Header from '$lib/components/Header.svelte';
+  import '../styles.css';
+  import Header from '$lib/components/Header.svelte';
 </script>
 
 <Header />
 
 <main>
-	<slot />
+  <slot />
 </main>
 
 <style>
-	main {
-		display: flex;
-		justify-content: center;
+  main {
+    display: flex;
+    justify-content: center;
 
-		font-family: 'Lato', sans-serif;
-	}
+    font-family: 'Lato', sans-serif;
+  }
 </style>
