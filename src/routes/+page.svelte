@@ -26,7 +26,7 @@
   <div id="content">
     {#await promise then posts}
       {#each posts as post}
-        <a href={post.slug}>
+        <a href={post.slug} data-sveltekit-preload-data>
           <div class="entry">
             <h2>{post.title}</h2>
             <div class="published">{formatDate(post.published)}</div>
