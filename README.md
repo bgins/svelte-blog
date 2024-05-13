@@ -1,5 +1,15 @@
 # svelte-blog
 
+## Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Add `.env` and `.env.production` environments with `VITE_ORIGIN` variables for local development and production (used by `npm run build`).
+
 ## Developing
 
 Run in development mode:
