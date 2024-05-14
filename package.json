@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "prebuild": "node scripts/gen-manifest.js && node scripts/gen-rss-feed.js",
-    "build": "npm run prebuild && vite build",
+    "gen:manifest": "node scripts/gen-manifest.js",
+    "gen:feed": "node scripts/gen-rss-feed.js",
+    "build": "npm run gen:manifest && npm run gen:feed && vite build",
     "preview": "vite preview",
     "test": "npm run test:integration && npm run test:unit",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
