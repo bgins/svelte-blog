@@ -31,7 +31,7 @@ ${entries.join('')}</channel>
 
 // Load manifest and render RSS feed document
 const data = fs.readFileSync('./static/manifest.json')
-const manifest = JSON.parse(data)
+const manifest = JSON.parse(data.toString())
 const rss = render(manifest)
 
 // Write document to disk
