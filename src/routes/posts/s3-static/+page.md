@@ -2,7 +2,7 @@
 layout: post
 title: Deploying elm-pages to S3 Static Hosting
 description: A tutorial on deploying elm-pages to AWS S3 static website hosting.
-image: /images/blog/s3-static-pt1/s3-static.jpg
+image: /images/blog/s3-static/s3-static.jpg
 imageAlt: Image of floating castle
 imageAttribution: maxizapata of pixabay
 draft: false
@@ -16,7 +16,7 @@ Most of the information in this post will apply to any static site, but I am
 fond of `elm-pages`. Here is what Chrome's Lighthouse audit tool thinks of this
 page.
 
-![Lighthouse report](/images/blog/s3-static-pt1/lighthouse.png)
+![Lighthouse report](/images/blog/s3-static/lighthouse.png)
 
 I highly recommend [elm-pages](https://github.com/dillonkearns/elm-pages) for
 making fast, accessible static sites. It does for [elm](https://elm-lang.org/)
@@ -37,7 +37,7 @@ Pick out a bucket name. S3 buckets exist in a global namespace, and you might
 need to get creative with your naming. Bucket names must conform to the format
 described in [Rules for Bucket Naming](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules).
 
-![Good bucket name](/images/blog/s3-static-pt1/good-bucket-name.png)
+![Good bucket name](/images/blog/s3-static/good-bucket-name.png)
 
 Once you have selected a name, choose a region and skip forward to the Set
 Permissions step.
@@ -45,7 +45,7 @@ Permissions step.
 To host a static site that will be available to the world, we need to set public
 permissions. Uncheck the "Block _all_ public access" checkbox.
 
-![Set public access](/images/blog/s3-static-pt1/public-access.png)
+![Set public access](/images/blog/s3-static/public-access.png)
 
 Review your options in the last step, and create the bucket.
 
@@ -56,7 +56,7 @@ Build your `elm-pages` project.
 Find the bucket you created in the list of buckets, and upload all of the files
 from the `dist/` directory of your project.
 
-![Set public access](/images/blog/s3-static-pt1/upload.png)
+![Set public access](/images/blog/s3-static/upload.png)
 
 ## Enable Static Website Hosting
 
@@ -65,7 +65,7 @@ Find the "Static website hosting" card in the Properties tab.
 Select "Use this bucket to host a website" and enter `index.html` for the index
 and error documents.
 
-![Set public access](/images/blog/s3-static-pt1/static-hosting.png)
+![Set public access](/images/blog/s3-static/static-hosting.png)
 
 We use `index.html` in both fields so that `elm-pages` can serve our content and
 handle errors such as missing pages.
