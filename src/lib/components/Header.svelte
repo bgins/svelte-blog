@@ -7,6 +7,7 @@
     </div>
     <nav>
       <a class="link" href="/" rel="noopener noreferrer">Blog</a>
+      <a class="link" href="/projects" rel="noopener noreferrer">Projects</a>
       <a class="link" href="/about" rel="noopener noreferrer">About</a>
     </nav>
   </div>
