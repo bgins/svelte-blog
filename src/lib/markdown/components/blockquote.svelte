@@ -4,6 +4,7 @@
 
 <style>
   blockquote {
+    width: 95%;
     margin: 0;
     padding: 10px;
     background-color: #fbf9f9;
