@@ -2,6 +2,7 @@
   import {
     a,
     blockquote,
+    code,
     h1,
     h2,
     h3,
@@ -14,7 +15,7 @@
     p,
     ul
   } from '$lib/markdown/components'
-  export { a, blockquote, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul }
+  export { a, blockquote, code, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul }
 </script>
 
 <script>
