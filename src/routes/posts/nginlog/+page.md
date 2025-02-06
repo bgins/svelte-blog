@@ -5,7 +5,7 @@ description: nginlog is an nginx traffic analysis tool
 image: /images/blog/nginlog/nginlog.png
 imageAlt: Screenshot of the nginglog application
 draft: false
-published: 2017-09-09 PST
+published: 2017-09-09T00:00:00-08:00
 ---
 
 Nginlog is an nginx traffic analysis tool. I submitted nginlog as my final project for the 2017

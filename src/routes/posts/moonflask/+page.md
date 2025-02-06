@@ -5,7 +5,7 @@ description: Moon Flask was my first web project
 image: /images/blog/moonflask/moonflask.jpg
 imageAlt: Screenshot of Moon Flask data model
 draft: false
-published: 2015-12-19 PST
+published: 2015-12-19T00:00:00-08:00
 ---
 
 _Moon Flask was my first web project -- a simple content management system for my first blog! Since that time, I have moved my blog to `Jekyll` and now to `elm-pages`. My first post shows my early excitement for the web and data modeling._

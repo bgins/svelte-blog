@@ -6,7 +6,7 @@ image: /images/blog/s3-static/s3-static.jpg
 imageAlt: Image of floating castle
 imageAttribution: maxizapata of pixabay
 draft: false
-published: 2019-11-02 PST
+published: 2019-11-02T00:00:00-08:00
 ---
 
 This post shows how to deploy an `elm-pages` application to

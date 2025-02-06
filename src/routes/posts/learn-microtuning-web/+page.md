@@ -5,7 +5,7 @@ description: Learning microtuning is easier than ever. Find out where you can le
 image: /images/blog/learn-microtuning-web/learn-microtuning-web.png
 imageAlt: Abstract image representing microtuning
 draft: false
-published: 2021-02-27 PST
+published: 2021-02-27T00:00:00-08:00
 ---
 
 In recent years, it has become easier and easier to learn microtuning. New apps and tools on the web make microtuning immediately accessible without installing any software. This post covers a few of those tools from the perspective of what you can do with them and how they will help you learn.

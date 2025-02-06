@@ -5,7 +5,7 @@ description: Hebdomad is a xenharmonic web audio synthesizer
 image: /images/blog/hebdomad/hebdomad.png
 imageAlt: Screenshot of the Hebdomad application
 draft: false
-published: 2017-01-03 PST
+published: 2017-01-03T00:00:00-08:00
 ---
 
 Hebdomad is a retunable keyboard with sound synthesis controls. It uses the Web Audio API and can be played in most web browsers.

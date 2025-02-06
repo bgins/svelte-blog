@@ -6,7 +6,7 @@ image: /images/blog/functions-everywhere-once/everywhere-computer.webp
 imageAlt: Logo for the Homestar runtime
 imageAttribution: Everywhere Computer logo by Ryan Betts
 draft: false
-published: 2025-01-20 PST
+published: 2025-01-20T00:00:00-08:00
 ---
 
 _This post was [originally published in the Fission blog][original-post] on March 27th, 2024. Many thanks to [Boris Mann][boris-mann],

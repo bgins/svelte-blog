@@ -6,7 +6,7 @@ image: /images/blog/mergesort/mergesort.jpg
 imageAlt: Image of canyons abstractly represening merging and sorting
 imageAttribution: Image by Kelsie DiPerna
 draft: false
-published: 2017-09-11 PST
+published: 2017-09-11T00:00:00-08:00
 ---
 
 One of the things I love about Haskell is its expressiveness. What is
