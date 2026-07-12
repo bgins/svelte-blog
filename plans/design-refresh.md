@@ -51,6 +51,10 @@ status: proposal, v3 · 2026-07-08
     the stack; EB Garamond keeps the display register (titles, versals).
   - **Night `--rubric` is `#a84a2c`** — dark brick, near day strength (rubric swatch 03,
     `plans/swatch/rubric-03.html`); the provisional `#cf7a68` read salmon on night ink.
+- **2026-07-12 — the style guide.** The draft `markdown-test` post is retitled **Style Guide**
+  (`/posts/markdown-test`, draft, excluded from index and feed) and holds one of every element
+  the renderer sets. House rule: when a new element lands (versal, ornament, code treatment),
+  it gets an example there in the same change.
 
 Sources of truth consulted:
 
