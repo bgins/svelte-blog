@@ -45,6 +45,12 @@ status: proposal, v3 · 2026-07-08
   sepia rule; vermilion (`--rubric`) is the site's one accent — versals, the seal, active marks,
   guillemets, link hover, the lit colons. Bivalent indigo leaves the site's palette entirely.
   Token sheet updated (§2); the night vermilion lift still wants tuning.
+- **2026-07-12 — body face and night vermilion decided.**
+  - **Literata is the body face.** Read on the real site against Alegreya and Vollkorn via a
+    temporary `?font=` switcher; Literata at 16.5px won for sustained reading. Alegreya leaves
+    the stack; EB Garamond keeps the display register (titles, versals).
+  - **Night `--rubric` is `#a84a2c`** — dark brick, near day strength (rubric swatch 03,
+    `plans/swatch/rubric-03.html`); the provisional `#cf7a68` read salmon on night ink.
 
 Sources of truth consulted:
 
@@ -174,7 +180,7 @@ bump its px to match x-height — the swatch decides, per house practice):
 
 | element | face | spec |
 |---|---|---|
-| body | book | 17–18px / 1.65, `--ink` |
+| body | book (Literata) | 16.5px / 1.65, `--ink` |
 | measure | — | `max-width: 38rem` (~66ch — down from today's 800px) |
 | post title (h1) | book (or display cut) | 32–34px / 500, normal case |
 | h2 | book small caps | 19px, `letter-spacing: 0.06em` |
@@ -390,16 +396,10 @@ attribute present, index prerendered, feed URLs normalized).
 
 ## 13. open questions
 
-(The first round is answered in the decisions log; what remains is swatch outcomes, not
-directions.)
+(Earlier rounds are answered in the decisions log; the type and color foundations are now fully
+decided — Literata body, EB Garamond display, Geist Mono machine voice, vermilion `#a83220` day /
+`#a84a2c` night.)
 
-1. **Body face:** swatch 01 is on the bench (`plans/swatch/type-01.html`) — Alegreya body +
-   EB Garamond display, with an Alegreya-display control. Judge per the §2 protocol (phone
-   ~35cm + laptop, day and night); Literata remains the understudy if Alegreya disappoints.
-   Then decide whether EB Garamond keeps the display register or Alegreya takes everything.
-2. **The night vermilion lift.** Decided: treatment c, vermilion the only accent (see decisions
-   log). What remains is a hue tune: `#cf7a68` drifts salmon on `#121212` — swatch a darker,
-   earthier lift (brick-leaning candidates) on device before the token locks.
-3. **Motto finalist:** *solve et sublima* vs. *sublimate* (§4) — live with both before engraving;
+1. **Motto finalist:** *solve et sublima* vs. *sublimate* (§4) — live with both before engraving;
    the em-rule holds the line.
-4. **Manicule at 13px:** outcome of the icon-harness prototype — commit, or fall back to `▸`.
+2. **Manicule at 13px:** outcome of the icon-harness prototype — commit, or fall back to `▸`.
