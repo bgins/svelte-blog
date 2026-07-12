@@ -1,14 +1,6 @@
 <script>
-  /**
-   * Image source
-   * @type {String}
-   */
-  export let src
-  /**
-   * Alt text
-   * @type {String}
-   */
-  export let alt
+  /** @type {{ src: string, alt: string }} */
+  let { src, alt } = $props()
 </script>
 
 <img {src} {alt} />

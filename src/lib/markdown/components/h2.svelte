@@ -1,5 +1,9 @@
+<script>
+  let { children } = $props()
+</script>
+
 <h2>
-  <slot />
+  {@render children?.()}
 </h2>
 
 <style>
