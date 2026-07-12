@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>type swatch 01 — alegreya body · eb garamond display</title>
+<!--
+  type swatch 01 · design-refresh §2 + §6 (plans/design-refresh.md)
+
+  Question 1: does Alegreya read fast at body sizes, day and night?
+  Question 2: does EB Garamond earn the display register (titles + versals),
+              or does Alegreya take everything? (control title included)
+  Question 3 (§6 versal audition): bivalent indigo vs printed vermilion
+              vs the old maroon (auditioning, no seat).
+
+  Judge on phone (~35cm) and laptop, both grounds. Open directly — no build.
+  Real prose from posts/functions-everywhere-once.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Alegreya+SC:wght@400;500;700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist+Mono:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  section.theme[data-theme='day'] {
+    --bg: #f6f3e9;
+    --bg-raised: #fefdf8;
+    --ink: #181818;
+    --ink-muted: #5a5550;
+    --ink-faint: #a8a39c;
+    --accent: #3030dd;
+    --w-muted: #6b5a3e;
+    --hairline: rgba(24, 24, 24, 0.08);
+    --hairline-strong: rgba(24, 24, 24, 0.12);
+    --verm: #a83220;   /* printed vermilion — audition */
+    --maroon: #8f192f; /* the old red — audition, no seat */
+  }
+  section.theme[data-theme='night'] {
+    --bg: #121212;
+    --bg-raised: #181818;
+    --ink: #dbd7ca;
+    --ink-muted: #a49e91;
+    --ink-faint: #78736a;
+    --accent: #8a8af5;
+    --w-muted: #9a8b6e;
+    --hairline: rgba(219, 215, 202, 0.10);
+    --hairline-strong: rgba(219, 215, 202, 0.16);
+    --verm: #cf7a68;
+    --maroon: #c9727e;
+  }
+
+  body { background: #121212; }
+
+  section.theme {
+    background: var(--bg);
+    color: var(--ink);
+    padding: 3.5rem 1.5rem 5rem;
+  }
+  .col { max-width: 38rem; margin: 0 auto; }
+
+  /* the machine's voice */
+  .mono, .label, .meta, .swatch-head, code {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-feature-settings: 'ss01' on, 'ss02' on;
+  }
+  .swatch-head {
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-muted);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2.5rem;
+    box-shadow: inset 0 -1px 0 var(--hairline-strong);
+  }
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin: 2.25rem 0 0.6rem;
+  }
+  .meta {
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    margin-top: 0.9rem;
+  }
+
+  /* the author's voice */
+  article, .versal-row p, blockquote {
+    font-family: 'Alegreya', Georgia, serif;
+    font-size: 17.5px;
+    line-height: 1.65;
+  }
+  article p { margin: 0 0 1.15em; }
+
+  h1.t-ebg {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 33px; font-weight: 500; line-height: 1.15;
+  }
+  h1.t-ale {
+    font-family: 'Alegreya', Georgia, serif;
+    font-size: 30px; font-weight: 500; line-height: 1.18;
+  }
+  article h2 {
+    font-family: 'Alegreya SC', 'Alegreya', serif;
+    font-size: 19px; font-weight: 500; letter-spacing: 0.06em;
+    margin: 1.8em 0 0.7em;
+  }
+  article h3 {
+    font-family: 'Alegreya', serif; font-style: italic;
+    font-size: 18px; font-weight: 500;
+    margin: 1.5em 0 0.6em;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  code {
+    font-size: 15px;
+    background: var(--bg-raised);
+    box-shadow: inset 0 0 0 1px var(--hairline);
+    padding: 0.05em 0.35em;
+  }
+
+  blockquote {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.75rem;
+    align-items: start;
+    font-style: italic;
+    font-size: 18.5px;
+    margin: 1.6em 0;
+  }
+  blockquote::before, blockquote::after {
+    content: '»';
+    font-family: 'Alegreya', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--accent); opacity: 0.55;
+    font-style: normal;
+    line-height: 1.3;
+  }
+  blockquote::after { content: '«'; align-self: end; }
+
+  .caption {
+    font-family: 'Alegreya', serif; font-style: italic;
+    font-size: 14.5px; color: var(--w-muted);
+    margin-top: 0.5rem;
+  }
+
+  /* versals — §6 audition */
+  .versal-row { display: grid; gap: 1.5rem; }
+  .versal::first-letter {
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    color: var(--versal);
+    margin-right: 0.14em;
+  }
+  .versal.v-indigo { --versal: var(--accent); }
+  .versal.v-verm   { --versal: var(--verm); }
+  .versal.v-maroon { --versal: var(--maroon); }
+  @supports not ((initial-letter: 3) or (-webkit-initial-letter: 3)) {
+    .versal::first-letter {
+      float: left;
+      font-size: 3.1em;
+      line-height: 0.85;
+      padding-top: 0.08em;
+      margin-right: 0.12em;
+    }
+  }
+
+  .foot {
+    margin-top: 3.5rem;
+    padding-top: 0.75rem;
+    box-shadow: inset 0 1px 0 var(--hairline);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* paper grain — flp feTurbulence, fixed, above everything, inert */
+  .grain {
+    position: fixed; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<svg class="grain" aria-hidden="true">
+  <filter id="grain-f">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" />
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain-f)" />
+</svg>
+
+<template id="specimen">
+  <div class="col">
+    <div class="swatch-head">// type swatch 01 · alegreya body · eb garamond display</div>
+
+    <div class="label">display — eb garamond 500 / 33</div>
+    <h1 class="t-ebg">Functions Everywhere, Only Once</h1>
+    <div class="label">display — alegreya 500 / 30 (control)</div>
+    <h1 class="t-ale">Functions Everywhere, Only Once</h1>
+    <div class="meta">2025 · 01 · 20&ensp;//&ensp;12 min</div>
+
+    <div class="label">versal audition — indigo · vermilion · maroon (old)</div>
+    <div class="versal-row">
+      <p class="versal v-indigo">The Everywhere Computer is an emerging decentralized platform
+        that aims to distribute computational tasks across a vast, open network. This network
+        spans from your personal machine to other devices on your LAN, a cluster of cloud nodes,
+        and even to points of presence located at the edge of the Internet.</p>
+      <p class="versal v-verm">The Everywhere Computer is an emerging decentralized platform
+        that aims to distribute computational tasks across a vast, open network. This network
+        spans from your personal machine to other devices on your LAN, a cluster of cloud nodes,
+        and even to points of presence located at the edge of the Internet.</p>
+      <p class="versal v-maroon">The Everywhere Computer is an emerging decentralized platform
+        that aims to distribute computational tasks across a vast, open network. This network
+        spans from your personal machine to other devices on your LAN, a cluster of cloud nodes,
+        and even to points of presence located at the edge of the Internet.</p>
+    </div>
+
+    <div class="label">running text — sustained reading</div>
+    <article>
+      <p>At its core, the Everywhere Computer is built on the
+        <a href="#">InterPlanetary Virtual Machine (IPVM)</a> protocol. It executes workflows
+        containing tasks that are content-addressed&mdash;which means they're uniquely identified
+        by their content rather than by their location. This system is powered by nodes running
+        Fission's <a href="#">Homestar runtime</a>, an engine that runs WebAssembly (Wasm) based
+        workflows composed of Wasm components with runnable functions that can be scheduled and
+        executed by any Homestar peer throughout the network.</p>
+      <p>Beyond the sandboxing, portability, and predictable performance benefits of Wasm, we're
+        excited about orchestrating workflows and state machines composed of modules compiled
+        from different source languages and bringing them together into workflows where the
+        output of one task feeds into the input of another. Composing components in a workflow
+        lets users focus on component interfaces without considering interactions between
+        multiple languages.</p>
+      <blockquote>Write once, run once, and never run again (everywhere!)</blockquote>
+      <h2>Background: Wasm components, WIT, &amp; WASI logging</h2>
+      <p>Evolution within the Wasm ecosystem is happening at a wicked fast pace, particularly now
+        that the path to Wasm components has been streamlined and standardized&mdash;
+        module-to-module interop is trivial.</p>
+      <p>In the Everywhere Computer, we decided to use the <a href="#">Canonical ABI</a> to
+        convert between the values and functions exposed by components written using the
+        Component Model and those provided by Core WebAssembly modules instead of imposing a
+        custom ABI upon our users. A component is just a wrapper around a core module that
+        specifies its imports, internal definitions, and exports using interfaces defined with
+        the Wasm Interface Type (WIT) IDL format.</p>
+      <h3>Embedding Wasmtime</h3>
+      <p>The Homestar runtime embeds the <a href="#">Wasmtime</a> runtime to execute Wasm
+        components associated with tasks in a workflow. By adopting the Component Model and its
+        tooling (for example, <code>cargo-component</code> and <code>wit-bindgen</code>), we can
+        run workflows combining components from different languages without handling arbitrary
+        Wasm modules or introducing custom tooling, bindgens, or SDKs for our ecosystem.</p>
+    </article>
+
+    <div class="label">atlas caption</div>
+    <div class="caption">fig. — Logo for the Homestar runtime. Everywhere Computer logo by Ryan Betts.</div>
+
+    <div class="foot">judge at ~35cm phone · laptop&ensp;//&ensp;compare x-height, not font-size</div>
+  </div>
+</template>
+
+<section class="theme" data-theme="day"></section>
+<section class="theme" data-theme="night"></section>
+
+<script>
+  const specimen = document.getElementById('specimen')
+  for (const section of document.querySelectorAll('section.theme')) {
+    section.appendChild(specimen.content.cloneNode(true))
+    const head = section.querySelector('.swatch-head')
+    head.textContent += ' · ' + (section.dataset.theme === 'day' ? 'day — cream paper' : 'night — night ink')
+  }
+</script>
+
+</body>
+</html>
