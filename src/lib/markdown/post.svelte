@@ -21,6 +21,7 @@
 <script>
   import { page } from '$app/stores'
   import Quincunx from '$lib/components/Quincunx.svelte'
+  import { enhanceCode } from '$lib/actions/enhanceCode.js'
   import { formatDate } from '$lib/utils'
 
   /**
@@ -65,7 +66,7 @@
     </figure>
   </div>
 
-  <div id="content">
+  <div id="content" use:enhanceCode>
     {@render children?.()}
   </div>
 

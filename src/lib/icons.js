@@ -12,5 +12,13 @@ export const icons = {
     '<path d="M6.04 13.96 4.63 15.37"/><path d="M6.04 6.04 4.63 4.63"/>',
 
   // moon — a crescent bounded by two circular arcs (the night detent)
-  moon: '<path d="M10 2.5a5 5 0 0 0 7.5 7.5 7.5 7.5 0 1 1-7.5-7.5Z"/>'
+  moon: '<path d="M10 2.5a5 5 0 0 0 7.5 7.5 7.5 7.5 0 1 1-7.5-7.5Z"/>',
+
+  // copy — a front sheet over the corner of a second, ruled with arc corners
+  copy:
+    '<rect x="7" y="7" width="9" height="9" rx="1.5"/>' +
+    '<path d="M13 4H5.5A1.5 1.5 0 0 0 4 5.5V13"/>',
+
+  // done — a ruled check, the copy acknowledgement
+  done: '<path d="M4.5 10.5 8.5 14.5 15.5 6"/>'
 }

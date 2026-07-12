@@ -55,6 +55,12 @@ pre.shiki {
   color: var(--shiki-dark);
 }
 
+/* wraps each code block so the copy control can position against it
+ * (see actions/enhanceCode.js) */
+.code-block {
+  position: relative;
+}
+
 ul > li::before {
   display: inline-block;
   padding-right: 6px;
