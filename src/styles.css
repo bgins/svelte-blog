@@ -1,4 +1,3 @@
-@import url('/prism-theme.css');
 @import './lib/styles/tokens.css';
 
 body {
@@ -19,6 +18,41 @@ pre {
   font-feature-settings:
     'ss01' on,
     'ss02' on;
+}
+
+/* code blocks — Shiki with the Vitesse duals, inked on the raised plate.
+ * Tokens carry both palettes as CSS variables (defaultColor: false); the
+ * rules below pick the one matching the site theme. */
+pre.shiki {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  margin: 0;
+  overflow-x: auto;
+
+  background-color: var(--bg-raised);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+
+  font-size: 15px;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='day']) .shiki,
+  :root:not([data-theme='day']) .shiki span {
+    color: var(--shiki-dark);
+  }
+}
+
+:root[data-theme='night'] .shiki,
+:root[data-theme='night'] .shiki span {
+  color: var(--shiki-dark);
 }
 
 ul > li::before {

@@ -27,19 +27,6 @@
   --font-body: 'Literata Variable', Georgia, serif;
   --font-display: 'EB Garamond Variable', Georgia, serif;
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  /* code block palette (day values match the Prism default theme) */
-  --code-bg: #fefdf8;
-  --code-ink: #000000;
-  --code-comment: #708090;
-  --code-punctuation: #999999;
-  --code-property: #990055;
-  --code-string: #669900;
-  --code-operator: #9a6e3a;
-  --code-keyword: #0077aa;
-  --code-function: #dd4a68;
-  --code-regex: #ee9900;
-  --code-shadow: 0 1px #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,18 +46,6 @@
     --hairline: rgba(219, 215, 202, 0.1);
     --hairline-strong: rgba(219, 215, 202, 0.16);
     --grain-opacity: 0.05;
-
-    --code-bg: #181818;
-    --code-ink: #dbd7ca;
-    --code-comment: #758575;
-    --code-punctuation: #78736a;
-    --code-property: #cb7676;
-    --code-string: #4d9375;
-    --code-operator: #c99076;
-    --code-keyword: #6394bf;
-    --code-function: #c98a7d;
-    --code-regex: #dcae4e;
-    --code-shadow: none;
   }
 }
 
@@ -90,18 +65,6 @@
   --hairline: rgba(24, 24, 24, 0.08);
   --hairline-strong: rgba(24, 24, 24, 0.12);
   --grain-opacity: 0.06;
-
-  --code-bg: #fefdf8;
-  --code-ink: #000000;
-  --code-comment: #708090;
-  --code-punctuation: #999999;
-  --code-property: #990055;
-  --code-string: #669900;
-  --code-operator: #9a6e3a;
-  --code-keyword: #0077aa;
-  --code-function: #dd4a68;
-  --code-regex: #ee9900;
-  --code-shadow: 0 1px #ffffff;
 }
 
 :root[data-theme='night'] {
@@ -120,16 +83,4 @@
   --hairline: rgba(219, 215, 202, 0.1);
   --hairline-strong: rgba(219, 215, 202, 0.16);
   --grain-opacity: 0.05;
-
-  --code-bg: #181818;
-  --code-ink: #dbd7ca;
-  --code-comment: #758575;
-  --code-punctuation: #78736a;
-  --code-property: #cb7676;
-  --code-string: #4d9375;
-  --code-operator: #c99076;
-  --code-keyword: #6394bf;
-  --code-function: #c98a7d;
-  --code-regex: #dcae4e;
-  --code-shadow: none;
 }
