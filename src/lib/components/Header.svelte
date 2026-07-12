@@ -1,12 +1,31 @@
+<script>
+  import { page } from '$app/stores'
+
+  const links = [
+    { href: '/', label: 'blog' },
+    { href: '/projects', label: 'projects' },
+    { href: '/about', label: 'about' }
+  ]
+
+  /**
+   * @param {string} href
+   * @param {string} pathname
+   */
+  function isActive(href, pathname) {
+    if (href === '/') return pathname === '/' || pathname.startsWith('/posts')
+    return pathname.startsWith(href)
+  }
+</script>
+
 <header>
   <div id="content">
-    <div id="brand">
-      <a class="link" href="/">Syntactic Overdrive</a>
-    </div>
+    <a id="brand" href="/"><span class="c">::</span> bgins <span class="c">::</span></a>
     <nav>
-      <a class="link" href="/">Blog</a>
-      <a class="link" href="/projects">Projects</a>
-      <a class="link" href="/about">About</a>
+      {#each links as link}
+        <a class="link" class:active={isActive(link.href, $page.url.pathname)} href={link.href}>
+          {link.label}
+        </a>
+      {/each}
     </nav>
   </div>
 </header>
@@ -27,17 +46,24 @@
       'ss02' on;
   }
 
-  header > #content > #brand {
+  #brand {
     display: flex;
     align-items: center;
+    gap: 0.45em;
 
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.15em;
+
+    color: var(--ink);
+    text-decoration: none;
   }
 
-  header > #content > nav {
+  #brand > .c {
+    color: var(--rubric);
+  }
+
+  nav {
     display: flex;
     gap: 15px;
     align-items: center;
@@ -45,19 +71,24 @@
 
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
   }
 
   .link {
-    color: var(--ink);
+    color: var(--ink-muted);
     text-decoration: none;
   }
 
-  nav > .link {
-    color: var(--ink-muted);
+  .link:hover {
+    color: var(--ink);
   }
 
-  nav > .link:hover {
+  .link.active {
     color: var(--ink);
+  }
+
+  .link.active::before {
+    content: '▸ ';
+    color: var(--rubric);
   }
 </style>

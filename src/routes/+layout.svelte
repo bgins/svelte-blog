@@ -8,6 +8,7 @@
   import '@fontsource/geist-mono/600.css'
   import '@fontsource/geist-mono/700.css'
   import '../styles.css'
+  import Colophon from '$lib/components/Colophon.svelte'
   import Grain from '$lib/components/Grain.svelte'
   import Header from '$lib/components/Header.svelte'
 
@@ -23,17 +24,28 @@
   />
 </svelte:head>
 
-<Header />
+<div id="app">
+  <Header />
 
-<main>
-  {@render children()}
-</main>
+  <main>
+    {@render children()}
+  </main>
+
+  <Colophon />
+</div>
 
 <Grain />
 
 <style>
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+
   main {
     display: flex;
     justify-content: center;
+    flex: 1;
   }
 </style>
