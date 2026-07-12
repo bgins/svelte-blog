@@ -6,19 +6,43 @@
   /** @type {{ data: { posts: { slug: string, title: string, published: string }[] } }} */
   let { data } = $props()
 
-  // Group posts by year (UTC, matching formatDate) for the year heads
-  const years = $derived.by(() => {
-    /** @type {{ year: number, posts: typeof data.posts }[]} */
-    const groups = []
-    for (const post of data.posts) {
-      const year = new Date(Date.parse(post.published)).getUTCFullYear()
-      const group = groups.at(-1)
-      if (group && group.year === year) group.posts.push(post)
-      else groups.push({ year, posts: [post] })
+  // a flat list with the year attached, so a single loop can both draw the
+  // year heads (on change) and index the rows for keyboard stepping
+  const flat = $derived(
+    data.posts.map(p => ({ ...p, year: new Date(Date.parse(p.published)).getUTCFullYear() }))
+  )
+
+  let cursor = $state(-1)
+  /** @type {HTMLAnchorElement[]} */
+  let rows = []
+
+  /* j and k step through the index like a dial's detents. The key is latched
+   * (repeat events are ignored) so a held key advances exactly one row. */
+  /** @param {KeyboardEvent} e */
+  function onkeydown(e) {
+    if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return
+    const t = e.target
+    if (
+      t instanceof HTMLElement &&
+      (t.isContentEditable || t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')
+    ) {
+      return
     }
-    return groups
-  })
+
+    if (e.key === 'j') {
+      cursor = cursor < 0 ? 0 : Math.min(cursor + 1, flat.length - 1)
+    } else if (e.key === 'k') {
+      cursor = cursor < 0 ? flat.length - 1 : Math.max(cursor - 1, 0)
+    } else {
+      return
+    }
+
+    e.preventDefault()
+    rows[cursor]?.focus()
+  }
 </script>
+
+<svelte:window {onkeydown} />
 
 <svelte:head>
   <title>Syntactic Overdrive</title>
@@ -37,15 +61,15 @@
   <Hero />
   <h1>Blog</h1>
   <div id="content">
-    {#each years as group (group.year)}
-      <h2 class="year">{group.year}</h2>
-      {#each group.posts as post (post.slug)}
-        <a class="row" href={post.slug}>
-          <span class="marker" aria-hidden="true">▸</span>
-          <span class="title">{post.title}</span>
-          <span class="date">{formatDate(post.published)}</span>
-        </a>
-      {/each}
+    {#each flat as post, i (post.slug)}
+      {#if i === 0 || flat[i - 1].year !== post.year}
+        <h2 class="year">{post.year}</h2>
+      {/if}
+      <a class="row" class:on={i === cursor} href={post.slug} bind:this={rows[i]}>
+        <span class="marker" aria-hidden="true">▸</span>
+        <span class="title">{post.title}</span>
+        <span class="date">{formatDate(post.published)}</span>
+      </a>
     {/each}
   </div>
 </div>
@@ -99,6 +123,16 @@
     text-decoration: none;
   }
 
+  .row:hover,
+  .row:focus-visible,
+  .row.on {
+    box-shadow: inset 0 -1px 0 var(--hairline-strong);
+  }
+
+  .row:focus-visible {
+    outline: none;
+  }
+
   .marker {
     font-family: var(--font-mono);
     font-size: 13px;
@@ -106,7 +140,9 @@
     visibility: hidden;
   }
 
-  .row:hover > .marker {
+  .row:hover > .marker,
+  .row:focus-visible > .marker,
+  .row.on > .marker {
     visibility: visible;
   }
 
