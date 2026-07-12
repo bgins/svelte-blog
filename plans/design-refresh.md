@@ -55,6 +55,13 @@ status: proposal, v3 · 2026-07-08
   (`/posts/markdown-test`, draft, excluded from index and feed) and holds one of every element
   the renderer sets. House rule: when a new element lands (versal, ornament, code treatment),
   it gets an example there in the same change.
+- **2026-07-12 — a second heritage mark recorded: the circuit trace.** Brian's longtime avatar
+  is a photograph of laser-cut wood engraved with circuit-board traces — parallel ruled runs,
+  via-circles crossed by a slash, the machine's network rendered in craft material. No vector
+  exists; the photos are the source. It pairs with Browne's reticulated Network as its machine
+  counterpart: one lattice grown, one etched. Candidate uses, not yet committed: an etched-trace
+  substrate for a future 404 or vault-adjacent surface, or a drawn ornament in the fine-line
+  register. Nothing ships in the device round; recorded so the language remembers it.
 
 Sources of truth consulted:
 

@@ -1,5 +1,10 @@
+<script>
+  import Device from '$lib/components/Device.svelte'
+</script>
+
 <footer>
   <div id="inner">
+    <div id="seal"><Device size={44} /></div>
     <div id="motto" aria-hidden="true">———</div>
     <div id="head">// colophon</div>
     <nav>
@@ -35,6 +40,11 @@
       'ss02' on;
     font-size: 12.5px;
     letter-spacing: 0.08em;
+  }
+
+  #seal {
+    color: var(--rubric);
+    padding-bottom: 2px;
   }
 
   #motto {
