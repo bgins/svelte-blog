@@ -5,7 +5,18 @@
     <link rel="canonical" href="https://brianginsburg.com/" />
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#8f192f" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f3e9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
+    <script>
+      // Apply a saved theme override before first paint to avoid a flash.
+      // Without a saved value the page follows prefers-color-scheme.
+      try {
+        const theme = localStorage.getItem('theme')
+        if (theme === 'day' || theme === 'night') {
+          document.documentElement.dataset.theme = theme
+        }
+      } catch {}
+    </script>
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Syntactic Overdrive" />
     <meta property="og:type" content="website" />
