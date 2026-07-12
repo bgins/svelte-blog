@@ -1,5 +1,6 @@
 <script>
   import Device from '$lib/components/Device.svelte'
+  import ThemeToggle from '$lib/components/ThemeToggle.svelte'
 </script>
 
 <footer>
@@ -12,6 +13,7 @@
       <span class="sep">·</span>
       <a href="https://github.com/bgins/svelte-blog">source</a>
     </nav>
+    <ThemeToggle />
     <div id="set">set in Literata &amp; Geist Mono · Svelte · S3</div>
   </div>
 </footer>
