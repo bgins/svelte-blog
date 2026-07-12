@@ -35,7 +35,7 @@ function getSlug(path) {
   const segments = path.split('/')
 
   if (segments[3] !== 'posts' || !segments[4]) {
-    console.warn('Could not derive slug from post path: ${path}')
+    console.warn(`Could not derive slug from post path: ${path}`)
     return null
   }
 

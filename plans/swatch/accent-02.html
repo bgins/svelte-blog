@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>accent swatch 02 — the quiet link</title>
+<!--
+  accent swatch 02 · design-refresh §2 + §3 (plans/design-refresh.md)
+
+  Standing decision (2026-07-12): vermilion wins the versals.
+  Open question: the primary accent. Bivalent indigo may be too loud for a
+  reading page — it is an instrument-panel hue. Auditioned here, on the same
+  link-dense paragraph:
+
+    a — bivalent indigo (control; the family accent)
+    b — vermilion (the rubric hue doing double duty)
+    c — writing ink + ruled underline, vermilion on hover (quietest)
+    d — iron-gall ink (indigo ground down to manuscript blue-black)
+
+  Plus the wordmark colons in each hue, and a composite "page as it would
+  set": vermilion versal + quiet links + vermilion marks.
+
+  Judge on phone (~35cm) and laptop, both grounds. Hover the c-links —
+  the color lives in the hover. Open directly — no build.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Alegreya+SC:wght@400;500;700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist+Mono:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  section.theme[data-theme='day'] {
+    --bg: #f6f3e9;
+    --bg-raised: #fefdf8;
+    --ink: #181818;
+    --ink-muted: #5a5550;
+    --ink-faint: #a8a39c;
+    --indigo: #3030dd;
+    --verm: #a83220;
+    --gall: #343457;
+    --w-muted: #6b5a3e;
+    --w-faint: #ada082;
+    --u-line: rgba(107, 90, 62, 0.55); /* w-muted ruled thin */
+    --hairline: rgba(24, 24, 24, 0.08);
+    --hairline-strong: rgba(24, 24, 24, 0.12);
+  }
+  section.theme[data-theme='night'] {
+    --bg: #121212;
+    --bg-raised: #181818;
+    --ink: #dbd7ca;
+    --ink-muted: #a49e91;
+    --ink-faint: #78736a;
+    --indigo: #8a8af5;
+    --verm: #cf7a68;
+    --gall: #9c9cc9;
+    --w-muted: #9a8b6e;
+    --w-faint: #6f6654;
+    --u-line: rgba(154, 139, 110, 0.55);
+    --hairline: rgba(219, 215, 202, 0.10);
+    --hairline-strong: rgba(219, 215, 202, 0.16);
+  }
+
+  body { background: #121212; }
+
+  section.theme {
+    background: var(--bg);
+    color: var(--ink);
+    padding: 3.5rem 1.5rem 5rem;
+  }
+  .col { max-width: 38rem; margin: 0 auto; }
+
+  .mono, .label, .swatch-head, .wordmark, .row-date, .marker {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-feature-settings: 'ss01' on, 'ss02' on;
+  }
+  .swatch-head {
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-muted);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2.5rem;
+    box-shadow: inset 0 -1px 0 var(--hairline-strong);
+  }
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin: 2.25rem 0 0.6rem;
+  }
+
+  p {
+    font-family: 'Alegreya', Georgia, serif;
+    font-size: 17.5px;
+    line-height: 1.65;
+    margin: 0 0 1.15em;
+  }
+
+  a { text-decoration: none; }
+
+  /* a — bivalent indigo (control) */
+  .lk-indigo a { color: var(--indigo); }
+  .lk-indigo a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  /* b — vermilion */
+  .lk-verm a { color: var(--verm); }
+  .lk-verm a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  /* c — writing ink + ruled underline; the color lives in the hover */
+  .lk-quiet a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--u-line);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .lk-quiet a:hover { color: var(--verm); text-decoration-color: var(--verm); }
+
+  /* d — iron-gall ink */
+  .lk-gall a { color: var(--gall); }
+  .lk-gall a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  /* wordmark colon auditions */
+  .wordmark {
+    font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--ink);
+    margin: 0.35rem 0;
+  }
+  .wordmark .c-indigo { color: var(--indigo); }
+  .wordmark .c-verm { color: var(--verm); }
+  .wordmark .c-faint { color: var(--ink-faint); }
+  .wordmark .tag {
+    font-weight: 400; text-transform: none; letter-spacing: 0.04em;
+    font-size: 12px; color: var(--ink-faint); margin-left: 1.25rem;
+  }
+
+  /* composite — index row with active marker */
+  .index-row {
+    display: flex; align-items: baseline; gap: 1rem;
+    padding: 0.85rem 0;
+    box-shadow: inset 0 -1px 0 var(--hairline);
+  }
+  .index-row .marker { color: var(--verm); font-size: 13px; }
+  .index-row .title {
+    font-family: 'Alegreya', serif; font-size: 19px; font-weight: 600;
+    flex: 1;
+  }
+  .row-date {
+    font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-faint); font-variant-numeric: tabular-nums;
+  }
+
+  .versal::first-letter {
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    color: var(--verm);
+    margin-right: 0.14em;
+  }
+  @supports not ((initial-letter: 3) or (-webkit-initial-letter: 3)) {
+    .versal::first-letter {
+      float: left; font-size: 3.1em; line-height: 0.85;
+      padding-top: 0.08em; margin-right: 0.12em;
+    }
+  }
+
+  .foot {
+    margin-top: 3.5rem;
+    padding-top: 0.75rem;
+    box-shadow: inset 0 1px 0 var(--hairline);
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .grain {
+    position: fixed; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<svg class="grain" aria-hidden="true">
+  <filter id="grain-f">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" />
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain-f)" />
+</svg>
+
+<template id="specimen">
+  <div class="col">
+    <div class="swatch-head">// accent swatch 02 · the quiet link</div>
+
+    <div class="label">wordmark colons — indigo · vermilion · faint</div>
+    <div class="wordmark"><span class="c-indigo">::</span> bgins <span class="c-indigo">::</span><span class="tag">indigo — the family accent</span></div>
+    <div class="wordmark"><span class="c-verm">::</span> bgins <span class="c-verm">::</span><span class="tag">vermilion — the rubric hue</span></div>
+    <div class="wordmark"><span class="c-faint">::</span> bgins <span class="c-faint">::</span><span class="tag">faint — no accent at all</span></div>
+
+    <div class="label">a — links in bivalent indigo (control)</div>
+    <p class="lk-indigo">At its core, the Everywhere Computer is built on the
+      <a href="#">InterPlanetary Virtual Machine (IPVM)</a> protocol. It executes workflows
+      containing tasks that are content-addressed. This system is powered by nodes running
+      Fission's <a href="#">Homestar runtime</a>, an engine that runs
+      <a href="#">WebAssembly (Wasm)</a> based workflows composed of Wasm components with
+      runnable functions that can be scheduled and executed by any Homestar peer throughout
+      the network.</p>
+
+    <div class="label">b — links in vermilion (the rubric hue)</div>
+    <p class="lk-verm">At its core, the Everywhere Computer is built on the
+      <a href="#">InterPlanetary Virtual Machine (IPVM)</a> protocol. It executes workflows
+      containing tasks that are content-addressed. This system is powered by nodes running
+      Fission's <a href="#">Homestar runtime</a>, an engine that runs
+      <a href="#">WebAssembly (Wasm)</a> based workflows composed of Wasm components with
+      runnable functions that can be scheduled and executed by any Homestar peer throughout
+      the network.</p>
+
+    <div class="label">c — links in writing ink, ruled underline · vermilion lives in the hover</div>
+    <p class="lk-quiet">At its core, the Everywhere Computer is built on the
+      <a href="#">InterPlanetary Virtual Machine (IPVM)</a> protocol. It executes workflows
+      containing tasks that are content-addressed. This system is powered by nodes running
+      Fission's <a href="#">Homestar runtime</a>, an engine that runs
+      <a href="#">WebAssembly (Wasm)</a> based workflows composed of Wasm components with
+      runnable functions that can be scheduled and executed by any Homestar peer throughout
+      the network.</p>
+
+    <div class="label">d — links in iron-gall ink (indigo ground down to manuscript blue-black)</div>
+    <p class="lk-gall">At its core, the Everywhere Computer is built on the
+      <a href="#">InterPlanetary Virtual Machine (IPVM)</a> protocol. It executes workflows
+      containing tasks that are content-addressed. This system is powered by nodes running
+      Fission's <a href="#">Homestar runtime</a>, an engine that runs
+      <a href="#">WebAssembly (Wasm)</a> based workflows composed of Wasm components with
+      runnable functions that can be scheduled and executed by any Homestar peer throughout
+      the network.</p>
+
+    <div class="label">composite — the page as it would set: vermilion versal + marks, quiet links</div>
+    <p class="versal lk-quiet">The Everywhere Computer is an emerging decentralized platform
+      that aims to distribute computational tasks across a vast, open network. This network
+      spans from your personal machine to other devices on your LAN, a cluster of
+      <a href="#">cloud nodes</a>, and even to <a href="#">points of presence</a> located at
+      the edge of the Internet. Processing happens as close to the data source as possible,
+      scheduled on nodes with general capacity or those with specialized capabilities.</p>
+
+    <div class="index-row">
+      <span class="marker">▸</span>
+      <span class="title">Functions Everywhere, Only Once</span>
+      <span class="row-date">2025 · 01 · 20</span>
+    </div>
+    <div class="index-row">
+      <span class="marker" style="visibility: hidden">▸</span>
+      <span class="title">Learn Microtuning on the Web</span>
+      <span class="row-date">2019 · 04 · 02</span>
+    </div>
+
+    <div class="foot">hover the c-links — the color lives in the hover</div>
+  </div>
+</template>
+
+<section class="theme" data-theme="day"></section>
+<section class="theme" data-theme="night"></section>
+
+<script>
+  const specimen = document.getElementById('specimen')
+  for (const section of document.querySelectorAll('section.theme')) {
+    section.appendChild(specimen.content.cloneNode(true))
+    const head = section.querySelector('.swatch-head')
+    head.textContent += ' · ' + (section.dataset.theme === 'day' ? 'day — cream paper' : 'night — night ink')
+  }
+</script>
+
+</body>
+</html>

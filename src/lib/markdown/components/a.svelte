@@ -1,13 +1,10 @@
 <script>
-  /**
-   * Link URL
-   * @type {String}
-   */
-  export let href
+  /** @type {{ href: string, children?: import('svelte').Snippet }} */
+  let { href, children } = $props()
 </script>
 
 <a {href} rel="noopener noreferrer" target="_blank">
-  <slot />
+  {@render children?.()}
 </a>
 
 <style>

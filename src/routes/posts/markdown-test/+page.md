@@ -8,11 +8,11 @@ draft: true
 published: 2021-03-06T00:00:00-08:00
 ---
 
-Plain text. _Itatilc_. **Bold**. ~~Strikethrough~~.
+Plain text. _Italic_. **Bold**. ~~Strikethrough~~.
 
-**_Bold and Itatilc_**. _~~Italic and struck through~~_. **~~Bold and struck through~~**. _**~~Bold, Italic, and struck through~~**_.
+**_Bold and Italic_**. _~~Italic and struck through~~_. **~~Bold and struck through~~**. _**~~Bold, Italic, and struck through~~**_.
 
-[A link](https://example.com). [_Italic link_](https://exmaple.com).
+[A link](https://example.com). [_Italic link_](https://example.com).
 [**Bold link**](https://example.com). [~~Struck through link~~](https://example.com)
 
 `Code span`

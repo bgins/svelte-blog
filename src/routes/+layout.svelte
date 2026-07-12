@@ -1,6 +1,8 @@
 <script lang="ts">
   import '../styles.css'
   import Header from '$lib/components/Header.svelte'
+
+  let { children } = $props()
 </script>
 
 <svelte:head>
@@ -15,7 +17,7 @@
 <Header />
 
 <main>
-  <slot />
+  {@render children()}
 </main>
 
 <style>

@@ -1,5 +1,5 @@
-<script context="module">
-  import {
+<script module>
+  export {
     a,
     blockquote,
     h1,
@@ -14,22 +14,13 @@
     p,
     ul
   } from '$lib/markdown/components'
-  export { a, blockquote, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul }
 </script>
 
 <script>
   import { page } from '$app/stores'
 
-  /**
-   * Page title
-   * @type {String}
-   */
-  export let title
-  /**
-   * Page description
-   * @type {String}
-   */
-  export let description
+  /** @type {{ title: string, description: string, children?: import('svelte').Snippet }} */
+  let { title, description, children } = $props()
 </script>
 
 <svelte:head>
@@ -47,7 +38,7 @@
   <h1>{title}</h1>
 
   <div id="content">
-    <slot></slot>
+    {@render children?.()}
   </div>
 </div>
 

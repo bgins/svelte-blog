@@ -1,5 +1,5 @@
-<script context="module">
-  import {
+<script module>
+  export {
     a,
     blockquote,
     code,
@@ -15,7 +15,6 @@
     p,
     ul
   } from '$lib/markdown/components'
-  export { a, blockquote, code, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul }
 </script>
 
 <script>
@@ -23,40 +22,17 @@
   import { formatDate } from '$lib/utils'
 
   /**
-   * Post title
-   * @type {String}
+   * @type {{
+   *   title: string,
+   *   description: string,
+   *   published: string,
+   *   image: string,
+   *   imageAlt: string,
+   *   imageAttribution?: string,
+   *   children?: import('svelte').Snippet
+   * }}
    */
-  export let title
-
-  /**
-   * Post description
-   * @type {String}
-   */
-  export let description
-
-  /**
-   * Published date
-   * @type {String}
-   */
-  export let published
-
-  /**
-   * Heading image source
-   * @type {String}
-   */
-  export let image
-
-  /**
-   * Heading image alt
-   * @type {String}
-   */
-  export let imageAlt
-
-  /**
-   * Heading image attribution
-   * @type {String}
-   */
-  export let imageAttribution
+  let { title, description, published, image, imageAlt, imageAttribution, children } = $props()
 </script>
 
 <svelte:head>
@@ -86,7 +62,7 @@
   </div>
 
   <div id="content">
-    <slot></slot>
+    {@render children?.()}
   </div>
 </div>
 

@@ -2,50 +2,32 @@
   import { page } from '$app/stores'
   import { formatDate } from '$lib/utils'
 
-  /**
-   * @param {{ published: string; }} a
-   * @param {{ published: string; }} b
-   */
-  function compareDates(a, b) {
-    return Date.parse(b.published) - Date.parse(a.published)
-  }
-
-  async function loadManifest() {
-    const res = await fetch('/manifest.json')
-    const manifest = await res.json()
-
-    return manifest
-      .sort(compareDates)
-      .filter((/** @type {{ draft: boolean; }} */ post) => post.draft === false)
-  }
-
-  const promise = loadManifest()
+  /** @type {{ data: { posts: { slug: string, title: string, published: string }[] } }} */
+  let { data } = $props()
 </script>
 
 <svelte:head>
   <title>Syntactic Overdrive</title>
-  <meta name="description" content="A blog about progamming and music" />
+  <meta name="description" content="A blog about programming and music" />
   <meta property="og:title" content="Syntactic Overdrive" />
   <meta property="og:url" content={$page.url.href} />
-  <meta property="og:description" content="A blog about progamming and music" />
+  <meta property="og:description" content="A blog about programming and music" />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content="Syntactic Overdrive" />
-  <meta property="twitter:description" content="A blog about progamming and music" />
+  <meta property="twitter:description" content="A blog about programming and music" />
 </svelte:head>
 
 <div id="layout">
   <h1>Blog</h1>
   <div id="content">
-    {#await promise then posts}
-      {#each posts as post}
-        <a href={post.slug}>
-          <div class="entry">
-            <h2>{post.title}</h2>
-            <div class="published">{formatDate(post.published)}</div>
-          </div>
-        </a>
-      {/each}
-    {/await}
+    {#each data.posts as post}
+      <a href={post.slug}>
+        <div class="entry">
+          <h2>{post.title}</h2>
+          <div class="published">{formatDate(post.published)}</div>
+        </div>
+      </a>
+    {/each}
   </div>
 </div>
 

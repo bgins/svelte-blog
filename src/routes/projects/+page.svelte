@@ -50,11 +50,11 @@
 </script>
 
 <svelte:head>
-  <title>Syntactic Overdrive</title>
+  <title>Projects | Syntactic Overdrive</title>
   <meta name="description" content="My projects" />
   <meta property="og:title" content="Projects" />
   <meta property="og:url" content={$page.url.href} />
-  <meta property="og:description" content="A blog about progamming and music" />
+  <meta property="og:description" content="My projects" />
   <meta property="twitter:title" content="Projects" />
   <meta property="twitter:description" content="My projects" />
 </svelte:head>
