@@ -18,10 +18,11 @@ const loadLanguages = require('prismjs/components/index.js')
 
 const escapeSvelty = str =>
   str
-    .replace(/[{}`]/g, c => ({ '{': '&#123;', '}': '&#125;', '`': '&#96;' }[c]))
+    .replace(/[{}`]/g, c => ({ '{': '&#123;', '}': '&#125;', '`': '&#96;' })[c])
     .replace(/\\([trn])/g, '&#92;$1')
 
-const escapeHtml = str => str.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))
+const escapeHtml = str =>
+  str.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
 
 function highlighter(code, lang) {
   if (lang && !Prism.languages[lang]) {
@@ -33,7 +34,9 @@ function highlighter(code, lang) {
   }
 
   const grammar = lang && Prism.languages[lang]
-  const highlighted = escapeSvelty(grammar ? Prism.highlight(code, grammar, lang) : escapeHtml(code))
+  const highlighted = escapeSvelty(
+    grammar ? Prism.highlight(code, grammar, lang) : escapeHtml(code)
+  )
 
   return `<pre class="language-${lang}">{@html \`<code class="language-${lang}">${highlighted}</code>\`}</pre>`
 }

@@ -1,17 +1,9 @@
-import { browser } from '$app/environment'
-
 export function formatDate(dateString: string): string {
-  if (browser) {
-    const timestamp: number = Date.parse(`${dateString}`)
-    const date: Date = new Date(+timestamp)
-    const lang: string = navigator.language
-    const formatOptions: Intl.DateTimeFormatOptions = {
-      dateStyle: 'long'
-    }
-
-    const formattedDate: string = new Intl.DateTimeFormat(lang, formatOptions).format(date)
-    return formattedDate
-  } else {
-    return dateString
+  const date: Date = new Date(Date.parse(dateString))
+  const formatOptions: Intl.DateTimeFormatOptions = {
+    dateStyle: 'long'
   }
+
+  // A fixed locale keeps prerendered and hydrated output identical
+  return new Intl.DateTimeFormat('en-US', formatOptions).format(date)
 }

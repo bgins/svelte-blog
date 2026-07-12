@@ -1,5 +1,5 @@
 <script module>
-  import {
+  export {
     a,
     blockquote,
     h1,
@@ -14,7 +14,6 @@
     p,
     ul
   } from '$lib/markdown/components'
-  export { a, blockquote, h1, h2, h3, h4, h5, h6, img, li, ol, p, ul }
 </script>
 
 <script>
