@@ -35,7 +35,7 @@
   #layout {
     box-sizing: border-box;
     width: 100%;
-    max-width: 800px;
+    max-width: calc(38rem + 60px);
     padding: 40px 30px;
   }
 
@@ -49,7 +49,7 @@
 
   a {
     width: 100%;
-    color: #000000;
+    color: inherit;
     text-decoration: none;
   }
 
@@ -67,33 +67,34 @@
   }
 
   .entry:hover {
-    border-left: 4px solid #8f192fbf;
+    border-left: 4px solid var(--rubric);
     transition: border-left ease-in 0.06s;
-  }
-
-  h1,
-  h2 {
-    font-family: 'Rosario', sans-serif;
-    font-variant: normal;
-    font-weight: bold;
   }
 
   h1 {
     margin: 0;
     padding: 0 14px;
 
-    font-size: 36px;
-    line-height: 36px;
-    letter-spacing: -0.5px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.2;
   }
 
   h2 {
     margin: 0;
-    font-size: 28px;
-    letter-spacing: -0.5px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
   }
 
   .published {
-    color: #00000099;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-faint);
   }
 </style>

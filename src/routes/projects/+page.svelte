@@ -116,9 +116,8 @@
     display: grid;
     grid-template-rows: 300px 1fr 40px;
     width: 100%;
-    background-color: #ffffff;
-    border-radius: 1px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.35);
+    background-color: var(--bg-raised);
+    box-shadow: inset 0 0 0 1px var(--hairline-strong);
   }
 
   .card-header img {
@@ -147,34 +146,29 @@
     flex-direction: row;
     align-items: center;
     gap: 3px;
-    color: #000000;
+    color: var(--ink);
     text-decoration: none;
     transition: color ease-out 0.03s;
   }
 
   .card-footer > a:hover {
-    color: #6d1223;
+    color: var(--rubric);
     transition: color ease-in 0.06s;
-  }
-
-  h1,
-  h3 {
-    font-family: 'Rosario', sans-serif;
-    font-variant: normal;
   }
 
   h1 {
     margin: 0;
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 36px;
-    letter-spacing: -0.5px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.2;
   }
 
   h3 {
     margin: 0;
-    font-size: 24px;
-    font-weight: normal;
-    letter-spacing: -0.5px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
   }
 </style>

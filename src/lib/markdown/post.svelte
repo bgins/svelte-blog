@@ -70,7 +70,7 @@
   #layout {
     box-sizing: border-box;
     width: 100%;
-    max-width: 800px;
+    max-width: calc(38rem + 60px);
     padding: 40px 30px;
   }
 
@@ -82,17 +82,21 @@
     margin: 0;
     padding: 0;
 
-    font-family: 'Rosario', sans-serif;
-    font-variant: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 36px;
-    letter-spacing: -0.5px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.2;
   }
 
   #heading > #published {
     padding-top: 10px;
-    color: #00000099;
+
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-faint);
   }
 
   #heading > img {
@@ -102,8 +106,9 @@
 
   #heading > #attribution {
     padding-top: 7px;
-    color: #00000080;
+    font-size: 15px;
     font-style: italic;
+    color: var(--w-muted);
   }
 
   #content {

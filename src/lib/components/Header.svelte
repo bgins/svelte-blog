@@ -1,26 +1,19 @@
 <header>
-  <div id="top"></div>
-
   <div id="content">
     <div id="brand">
-      <a class="link" href="/" rel="noopener noreferrer">Syntactic Overdrive</a>
+      <a class="link" href="/">Syntactic Overdrive</a>
     </div>
     <nav>
-      <a class="link" href="/" rel="noopener noreferrer">Blog</a>
-      <a class="link" href="/projects" rel="noopener noreferrer">Projects</a>
-      <a class="link" href="/about" rel="noopener noreferrer">About</a>
+      <a class="link" href="/">Blog</a>
+      <a class="link" href="/projects">Projects</a>
+      <a class="link" href="/about">About</a>
     </nav>
   </div>
 </header>
 
 <style>
   header {
-    display: grid;
-    grid-template-rows: 4px 1fr;
-  }
-
-  header > #top {
-    background-color: #8e182e;
+    box-shadow: inset 0 -1px 0 var(--hairline-strong);
   }
 
   header > #content {
@@ -28,13 +21,20 @@
     grid-template-columns: 1fr 1fr;
     padding: 22px 25px 18px 25px;
 
-    font-family: 'Rosario';
-    border-bottom: 1px solid #293d2954;
+    font-family: var(--font-mono);
+    font-feature-settings:
+      'ss01' on,
+      'ss02' on;
   }
 
   header > #content > #brand {
-    display: grid;
-    font-size: 28px;
+    display: flex;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   header > #content > nav {
@@ -43,11 +43,21 @@
     align-items: center;
     justify-content: end;
 
-    font-size: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
   }
 
   .link {
-    color: #000000;
+    color: var(--ink);
     text-decoration: none;
+  }
+
+  nav > .link {
+    color: var(--ink-muted);
+  }
+
+  nav > .link:hover {
+    color: var(--ink);
   }
 </style>

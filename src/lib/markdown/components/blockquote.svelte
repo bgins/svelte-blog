@@ -10,8 +10,8 @@
   blockquote {
     width: 95%;
     margin: 0;
-    padding: 10px;
-    background-color: #fbf9f9;
-    border-left: 4px solid #8f192f;
+    padding: 10px 14px;
+    background-color: var(--bg-raised);
+    border-left: 4px solid var(--w-faint);
   }
 </style>

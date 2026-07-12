@@ -9,7 +9,15 @@
 
 <style>
   a {
-    color: #8e182e;
-    text-decoration: none;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--rule-under);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    color: var(--rubric);
+    text-decoration-color: currentColor;
   }
 </style>

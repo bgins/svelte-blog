@@ -46,7 +46,7 @@
   #layout {
     box-sizing: border-box;
     width: 100%;
-    max-width: 800px;
+    max-width: calc(38rem + 60px);
     padding: 40px 30px;
   }
 
@@ -63,11 +63,9 @@
     margin: 0;
     padding-bottom: 16px;
 
-    font-family: 'Rosario', sans-serif;
-    font-variant: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 36px;
-    letter-spacing: -0.5px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.2;
   }
 </style>
