@@ -22,6 +22,7 @@
   aria-label={title}
   aria-hidden={title ? undefined : true}
 >
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -- fragments come from the trusted static registry, never user input -->
   {@html icons[name]}
 </svg>
 
