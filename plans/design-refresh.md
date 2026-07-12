@@ -391,17 +391,21 @@ reader operates, never to ornament.
 
 ## 12. phases
 
-1. **Phase 0 — housekeeping.** §10 fixes + Svelte 5 migration. Shippable alone, no visual change.
+1. **Phase 0 — housekeeping.** §10 fixes + Svelte 5 migration. Shippable alone, no visual
+   change. **DONE — merged and live on brianginsburg.com.**
 2. **Phase 1 — foundation.** Body-face swatch (§2) then token sheet, the chosen book face +
    Geist Mono, grain overlay, theme plumbing, base type scale. Wool, Rosario/Lato/Cousine, and
-   the maroons retire. The site already reads as family after this phase.
+   the maroons retire. **DONE — on `foundation-tokens`, unmerged.**
 3. **Phase 2 — the book.** Header + colophon, index rows + year heads, markdown components
    (blockquote, headings, links, hr-quincunx, bullets, plate frames + captions), post/page
-   layouts, versals + tailpieces, projects-as-plates, Shiki Vitesse.
-4. **Phase 3 — the device.** Monogram redrawn as SVG; hero plate on the Network; favicon /
-   apple-touch / OG regenerated.
+   layouts, versals + tailpieces, projects-as-plates, Shiki Vitesse. **DONE — on
+   `foundation-tokens`, unmerged.**
+4. **Phase 3 — the device.** Monogram traced to vector; hero plate on the Network; colophon
+   seal; favicon / apple-touch / webmanifest / OG card. **DONE — on `foundation-tokens`,
+   unmerged.**
 5. **Phase 4 — instruments.** The flip-to-contact-plate, the sun/moon theme switch, copy
    strike-ring, keyboard detents, manicule prototype. Reduced-motion cuts throughout.
+   **REMAINING.**
 
 Each phase leaves the site deployable; the existing Playwright checks extend per phase (theme
 attribute present, index prerendered, feed URLs normalized).
@@ -415,3 +419,58 @@ decided — Literata body, EB Garamond display, Geist Mono machine voice, vermil
 1. **Motto finalist:** *solve et sublima* vs. *sublimate* (§4) — live with both before engraving;
    the em-rule holds the line.
 2. **Manicule at 13px:** outcome of the icon-harness prototype — commit, or fall back to `▸`.
+
+## 14. state of the work — handoff, 2026-07-12
+
+Everything below is true as of this date; the decisions log above is the authority on choices.
+
+**Branch.** `foundation-tokens`, sixteen commits on top of main, unpushed and unmerged. Main
+carries only the housekeeping release (Svelte 5, prerendered index, CI fixes), which is live.
+The entire visual refresh ships when this branch merges. Every commit was verified before
+landing: production build, svelte-check, prettier + eslint, the Playwright suite, and browser
+screenshots on both grounds.
+
+**Remaining build work — the instruments (phase 4).**
+
+- The device flip: tap the hero seal, the plate flips (0.7s, `cubic-bezier(0.4, 0.1, 0.2, 1)`,
+  backface hidden) to a QR inked as a construction plate carrying `https://github.com/bgins`.
+  The QR plate stays light in both themes; an inverted QR may not scan.
+- The theme switch: a small engraved sun/moon glyph (20-grid, 1.5 stroke, compass arcs, per the
+  next-icons spec), three detents auto → day → night. The plumbing already exists: set
+  `data-theme` on `<html>` and persist to `localStorage['theme']` — the pre-paint script in
+  `app.html` already reads that key.
+- The copy control on code blocks, acknowledged by a strike-ring pulse (0.55s ease-out, scale to
+  ~3, fade).
+- Keyboard detents on the index (j/k stepping, keys latched so a held key fires once).
+- The manicule prototype (draw → render → screenshot → critique at 13px; fall back to `▸`).
+- `prefers-reduced-motion` cuts every ceremony to an instant state change.
+
+**Open questions.** The motto (finalists *solve et sublima* and *sublimate*, em-rule holds the
+line); the manicule; Brian's verdict on vitesse-light softness (if confirmed, deepen the palest
+hues with Shiki `colorReplacements` in `svelte.config.js`); phone evaluation of Literata and the
+night brick once deployed.
+
+**Working conventions — follow these.**
+
+- Clean history: commit messages and titles never reference phases or plan sections; temporary
+  markers in code are swept before work is declared done. Conventional Commits. Brian pushes.
+- Always `cd` explicitly before git commands; the shell working directory resets between turns
+  and this repo is not the default directory.
+- The style guide (`/posts/markdown-test`, draft) holds one of every element the site sets; a
+  new element gets its example there in the same change.
+- Decisions are made by swatch: build a self-contained harness under `plans/swatch/`, judge on
+  device, on both grounds. Verdicts go in the decisions log.
+- Builds need `VITE_ORIGIN=https://brianginsburg.com` (no .env in this checkout). The full check
+  is: build, `npm run check`, `npm run lint`, `npx playwright test`, then look at the pages in a
+  real browser, day and night.
+- Prettier exempts `src/routes/posts` and `plans`; never let it reformat published content.
+
+**Repo landmarks.** Tokens: `src/lib/styles/tokens.css`. The traced mark:
+`src/lib/components/monogram.js` (provenance: `plans/trace-monogram.mjs`). Components: `Device`,
+`Hero`, `Colophon`, `Grain`, `Quincunx`, `Header`. Markdown components under
+`src/lib/markdown/`. Shiki highlighter in `svelte.config.js`. Theme pre-paint script in
+`src/app.html`. Swatches: `plans/swatch/type-01.html`, `accent-02.html`, `rubric-03.html`.
+
+**Heritage sources.** The monogram's only vector is the trace; original raster copies exist
+with Brian if higher fidelity is ever needed. The circuit-trace avatar (see decisions log) is
+recorded but unused.
