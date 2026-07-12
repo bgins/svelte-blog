@@ -7,13 +7,12 @@
   <div class="quote">
     {@render children?.()}
   </div>
-  <span class="g end" aria-hidden="true">«</span>
 </blockquote>
 
 <style>
   blockquote {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
     gap: 12px;
 
     width: 100%;
@@ -31,9 +30,5 @@
 
     color: var(--rubric);
     opacity: 0.55;
-  }
-
-  .end {
-    align-self: end;
   }
 </style>

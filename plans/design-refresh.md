@@ -292,7 +292,8 @@ pricked, figures are inscribed in one another, and measure is marked with ticks"
   (dice-five, pricked sepia dots) or the device in miniature. The reader knows the text is done.
 - **`<hr>` becomes the quincunx** mid-text: five pricked dots in Browne's planting pattern instead
   of a rule.
-- **Blockquotes:** book-face italic, flanked by guillemets `» «` in `--rubric` at 0.55 opacity, hanging
+- **Blockquotes:** book-face italic, opened by a single guillemet `»` in `--rubric` at 0.55
+  opacity (the closing mark was dropped 2026-07-12 — it hung at the far margin), hanging
   cite in small caps — the flp essay-quote register translated into the book face.
 - **Plate frames for images.** Post heroes and project screenshots sit inside a hairline frame
   with compass-prick crosses at the corners — the registration-mark motif. Captions in the atlas
