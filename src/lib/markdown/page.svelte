@@ -30,9 +30,11 @@
   <meta property="og:title" content={title} />
   <meta property="og:url" content={$page.url.href} />
   <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
 </svelte:head>
 
 <div id="layout">

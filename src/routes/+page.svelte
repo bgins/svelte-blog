@@ -26,7 +26,9 @@
   <meta property="og:title" content="Syntactic Overdrive" />
   <meta property="og:url" content={$page.url.href} />
   <meta property="og:description" content="A blog about programming and music" />
+  <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:title" content="Syntactic Overdrive" />
   <meta property="twitter:description" content="A blog about programming and music" />
 </svelte:head>

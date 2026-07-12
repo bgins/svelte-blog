@@ -55,8 +55,10 @@
   <meta property="og:title" content="Projects" />
   <meta property="og:url" content={$page.url.href} />
   <meta property="og:description" content="My projects" />
+  <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:title" content="Projects" />
   <meta property="twitter:description" content="My projects" />
+  <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
 </svelte:head>
 
 <div id="layout">
