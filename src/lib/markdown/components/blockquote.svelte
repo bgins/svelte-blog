@@ -3,15 +3,37 @@
 </script>
 
 <blockquote>
-  {@render children?.()}
+  <span class="g" aria-hidden="true">»</span>
+  <div class="quote">
+    {@render children?.()}
+  </div>
+  <span class="g end" aria-hidden="true">«</span>
 </blockquote>
 
 <style>
   blockquote {
-    width: 95%;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+
+    width: 100%;
     margin: 0;
-    padding: 10px 14px;
-    background-color: var(--bg-raised);
-    border-left: 4px solid var(--w-faint);
+
+    font-style: italic;
+    font-size: 18px;
+  }
+
+  .g {
+    font-size: 21px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.4;
+
+    color: var(--rubric);
+    opacity: 0.55;
+  }
+
+  .end {
+    align-self: end;
   }
 </style>

@@ -26,5 +26,6 @@ ul > li::before {
   padding-right: 6px;
   transform: translateY(-1px);
 
-  content: '•';
+  content: '·';
+  color: var(--ink-faint);
 }
