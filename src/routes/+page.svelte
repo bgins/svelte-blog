@@ -4,6 +4,19 @@
 
   /** @type {{ data: { posts: { slug: string, title: string, published: string }[] } }} */
   let { data } = $props()
+
+  // Group posts by year (UTC, matching formatDate) for the year heads
+  const years = $derived.by(() => {
+    /** @type {{ year: number, posts: typeof data.posts }[]} */
+    const groups = []
+    for (const post of data.posts) {
+      const year = new Date(Date.parse(post.published)).getUTCFullYear()
+      const group = groups.at(-1)
+      if (group && group.year === year) group.posts.push(post)
+      else groups.push({ year, posts: [post] })
+    }
+    return groups
+  })
 </script>
 
 <svelte:head>
@@ -20,13 +33,15 @@
 <div id="layout">
   <h1>Blog</h1>
   <div id="content">
-    {#each data.posts as post}
-      <a href={post.slug}>
-        <div class="entry">
-          <h2>{post.title}</h2>
-          <div class="published">{formatDate(post.published)}</div>
-        </div>
-      </a>
+    {#each years as group (group.year)}
+      <h2 class="year">{group.year}</h2>
+      {#each group.posts as post (post.slug)}
+        <a class="row" href={post.slug}>
+          <span class="marker" aria-hidden="true">▸</span>
+          <span class="title">{post.title}</span>
+          <span class="date">{formatDate(post.published)}</span>
+        </a>
+      {/each}
     {/each}
   </div>
 </div>
@@ -42,38 +57,11 @@
   #content {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 10px;
-    padding-top: 20px;
-  }
-
-  a {
-    width: 100%;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .entry {
-    width: 100%;
-    display: flex;
-    box-sizing: content-box;
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
-    padding: 10px;
-
-    border-left: 4px solid transparent;
-    transition: border-left ease-out 0.03s;
-  }
-
-  .entry:hover {
-    border-left: 4px solid var(--rubric);
-    transition: border-left ease-in 0.06s;
+    padding-top: 8px;
   }
 
   h1 {
     margin: 0;
-    padding: 0 14px;
 
     font-family: var(--font-display);
     font-weight: 500;
@@ -81,20 +69,57 @@
     line-height: 1.2;
   }
 
-  h2 {
-    margin: 0;
+  .year {
+    margin: 26px 0 4px;
+
+    font-family: var(--font-mono);
+    font-feature-settings:
+      'ss01' on,
+      'ss02' on;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--ink-muted);
+  }
+
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    padding: 13px 0;
+    box-shadow: inset 0 -1px 0 var(--hairline);
+
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .marker {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--rubric);
+    visibility: hidden;
+  }
+
+  .row:hover > .marker {
+    visibility: visible;
+  }
+
+  .title {
+    flex: 1;
+
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.3;
   }
 
-  .published {
+  .date {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 12.5px;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
     font-variant-numeric: tabular-nums;
     color: var(--ink-faint);
+    white-space: nowrap;
   }
 </style>

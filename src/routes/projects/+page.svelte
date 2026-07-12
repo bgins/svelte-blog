@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores'
-  import LinkIcon from '$lib/components/icons/Link.svelte'
-  import PaperIcon from '$lib/components/icons/Paper.svelte'
+
+  const numerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']
 
   const projects = [
     {
@@ -62,36 +62,28 @@
 <div id="layout">
   <h1>Projects</h1>
   <div id="content">
-    {#each projects as project}
-      <div class="card">
-        <div class="card-header">
+    {#each projects as project, i (project.title)}
+      <article class="plate">
+        <figure>
           {#if project.links.external}
-            <a href={project.links.external} target="_blank">
+            <a href={project.links.external} target="_blank" rel="noopener noreferrer">
               <img src="/images/projects/{project.image}" alt={project.alt} />
             </a>
           {:else}
             <img src="/images/projects/{project.image}" alt={project.alt} />
           {/if}
-        </div>
-        <div class="card-body">
-          <h3>{project.title}</h3>
-          <div>{project.description}</div>
-        </div>
-        <div class="card-footer">
+          <figcaption>Tab. {numerals[i]} · {project.title}</figcaption>
+        </figure>
+        <p>{project.description}</p>
+        <nav>
           {#if project.links.external}
-            <a href={project.links.external} target="_blank">
-              <LinkIcon />
-              <span>Play</span>
-            </a>
+            <a href={project.links.external} target="_blank" rel="noopener noreferrer">play »</a>
           {/if}
           {#if project.links.post}
-            <a href={project.links.post}>
-              <PaperIcon />
-              <span>Read More</span>
-            </a>
+            <a href={project.links.post}>read more</a>
           {/if}
-        </div>
-      </div>
+        </nav>
+      </article>
     {/each}
   </div>
 </div>
@@ -107,68 +99,69 @@
   #content {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 15px;
-    padding-top: 20px;
-  }
-
-  .card {
-    display: grid;
-    grid-template-rows: 300px 1fr 40px;
-    width: 100%;
-    background-color: var(--bg-raised);
-    box-shadow: inset 0 0 0 1px var(--hairline-strong);
-  }
-
-  .card-header img {
-    object-fit: cover;
-    width: 100%;
-    height: 300px;
-  }
-
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
-    padding: 10px;
-  }
-
-  .card-footer {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding: 0 10px 5px 10px;
-  }
-
-  .card-footer > a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 3px;
-    color: var(--ink);
-    text-decoration: none;
-    transition: color ease-out 0.03s;
-  }
-
-  .card-footer > a:hover {
-    color: var(--rubric);
-    transition: color ease-in 0.06s;
+    gap: 44px;
+    padding-top: 24px;
   }
 
   h1 {
     margin: 0;
+
     font-family: var(--font-display);
     font-weight: 500;
     font-size: 34px;
     line-height: 1.2;
   }
 
-  h3 {
+  .plate {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  figure {
     margin: 0;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 1.3;
+    padding: 10px;
+    box-shadow: inset 0 0 0 1px var(--hairline-strong);
+  }
+
+  figure img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+  }
+
+  figcaption {
+    padding-top: 8px;
+
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--w-muted);
+  }
+
+  .plate > p {
+    margin: 0;
+  }
+
+  .plate > nav {
+    display: flex;
+    gap: 20px;
+
+    font-family: var(--font-mono);
+    font-feature-settings:
+      'ss01' on,
+      'ss02' on;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  .plate > nav > a {
+    color: var(--ink-muted);
+    text-decoration: none;
+  }
+
+  .plate > nav > a:hover {
+    color: var(--rubric);
   }
 </style>
