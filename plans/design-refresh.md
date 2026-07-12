@@ -63,6 +63,14 @@ status: proposal, v3 · 2026-07-08
   substrate for a future 404 or vault-adjacent surface, or a drawn ornament in the fine-line
   register. Nothing ships in the device round; recorded so the language remembers it.
 
+- **2026-07-12 — the instruments built (§9).** A theme switch (sun/moon glyph, three detents,
+  in the colophon); the device flip (the seal turns to a scannable QR contact plate, verified to
+  decode `https://github.com/bgins`, plate fixed-light both grounds); a copy control on code
+  blocks (glyph → check, strike-ring pulse); j/k keyboard stepping of the index (latched). A small
+  icon registry (`icons.js` + `Icon.svelte`) was added in the house pattern; `uqr` added as a
+  dependency for the QR. The manicule was prototyped and declined (see §6). Reduced-motion cuts
+  the flip and the pulse. All on `foundation-tokens`.
+
 Sources of truth consulted:
 
 - `~/code/networking/flp-demo/DESIGN-LANGUAGE.md` — the manifesto (the two Dürer hands, the engraving register)
@@ -306,12 +314,14 @@ pricked, figures are inscribed in one another, and measure is marked with ticks"
   with compass-prick crosses at the corners — the registration-mark motif. Captions in the atlas
   voice: *fig. — alt text*, book-face italic, `--w-muted`. Existing `imageAlt` / `imageAttribution`
   frontmatter feeds this directly.
-- **The manicule ☞ — candidate active marker.** The Renaissance reader's pointing hand, redrawn as
-  a fine-line 20×20 compass-arc glyph per the next-icons spec, marking the active nav item and
-  hovered index row. Risk: "silhouette survives 14px, detail doesn't" — if the hand muds at 13px,
-  fall back to `▸` and let the manicule serve larger (e.g., pull-quotes, the 404). Approved
-  2026-07-08 — prototype in the icon harness (the next-icons draw→render→screenshot loop) before
-  committing.
+- **The manicule ☞ — tried as the active marker, kept `▸` (decided 2026-07-12).** Prototyped in
+  `plans/swatch/manicule-04.html`: the Unicode ☞ and two custom draws (a filled silhouette and a
+  fine-line outline) against `▸` at 13/16/19/28px on both grounds and in context. The verdict was
+  the anticipated one — "silhouette survives 14px, detail doesn't." A hand only reads as a hand at
+  ~28px; at the 13px marker size every manicule collapses to a rubric blob that reads as noise or
+  a bullet, while `▸` stays crisp and says "this one." So `▸` holds the marker. The manicule is
+  reserved for a large-format flourish if a surface ever wants one (a pull-quote lead, a 404) — not
+  built yet, no surface needs it.
 - **List bullets:** the custom `•` becomes a `·` in `--ink-faint`.
 - **The Network appears at most twice** sitewide (home hero, optionally the 404). Substrate, not
   wallpaper.
@@ -404,8 +414,8 @@ reader operates, never to ornament.
    seal; favicon / apple-touch / webmanifest / OG card. **DONE — on `foundation-tokens`,
    unmerged.**
 5. **Phase 4 — instruments.** The flip-to-contact-plate, the sun/moon theme switch, copy
-   strike-ring, keyboard detents, manicule prototype. Reduced-motion cuts throughout.
-   **REMAINING.**
+   strike-ring, keyboard detents, manicule prototype. Reduced-motion cuts throughout. **DONE —
+   on `foundation-tokens`, unmerged. Manicule prototyped and declined; `▸` holds the marker.**
 
 Each phase leaves the site deployable; the existing Playwright checks extend per phase (theme
 attribute present, index prerendered, feed URLs normalized).
@@ -417,38 +427,30 @@ decided — Literata body, EB Garamond display, Geist Mono machine voice, vermil
 `#a84a2c` night.)
 
 1. **Motto finalist:** *solve et sublima* vs. *sublimate* (§4) — live with both before engraving;
-   the em-rule holds the line.
-2. **Manicule at 13px:** outcome of the icon-harness prototype — commit, or fall back to `▸`.
+   the em-rule holds the line in the colophon.
+2. **Vitesse-light softness:** Brian's verdict pending — if code reads too soft by day, deepen
+   the palest hues with Shiki `colorReplacements` in `svelte.config.js`.
+3. **Phone evaluation** of Literata and the night brick, once deployed.
 
-## 14. state of the work — handoff, 2026-07-12
+## 14. state of the work — handoff
 
-Everything below is true as of this date; the decisions log above is the authority on choices.
+The decisions log above is the authority on choices.
 
-**Branch.** `foundation-tokens`, sixteen commits on top of main, unpushed and unmerged. Main
+**Branch.** `foundation-tokens`, unpushed and unmerged, ~two dozen commits on top of main. Main
 carries only the housekeeping release (Svelte 5, prerendered index, CI fixes), which is live.
 The entire visual refresh ships when this branch merges. Every commit was verified before
 landing: production build, svelte-check, prettier + eslint, the Playwright suite, and browser
 screenshots on both grounds.
 
-**Remaining build work — the instruments (phase 4).**
+**All four design phases are built (§12).** The foundation, the book, the device, and the
+instruments are done on the branch. What remains before the refresh is finished:
 
-- The device flip: tap the hero seal, the plate flips (0.7s, `cubic-bezier(0.4, 0.1, 0.2, 1)`,
-  backface hidden) to a QR inked as a construction plate carrying `https://github.com/bgins`.
-  The QR plate stays light in both themes; an inverted QR may not scan.
-- The theme switch: a small engraved sun/moon glyph (20-grid, 1.5 stroke, compass arcs, per the
-  next-icons spec), three detents auto → day → night. The plumbing already exists: set
-  `data-theme` on `<html>` and persist to `localStorage['theme']` — the pre-paint script in
-  `app.html` already reads that key.
-- The copy control on code blocks, acknowledged by a strike-ring pulse (0.55s ease-out, scale to
-  ~3, fade).
-- Keyboard detents on the index (j/k stepping, keys latched so a held key fires once).
-- The manicule prototype (draw → render → screenshot → critique at 13px; fall back to `▸`).
-- `prefers-reduced-motion` cuts every ceremony to an instant state change.
-
-**Open questions.** The motto (finalists *solve et sublima* and *sublimate*, em-rule holds the
-line); the manicule; Brian's verdict on vitesse-light softness (if confirmed, deepen the palest
-hues with Shiki `colorReplacements` in `svelte.config.js`); phone evaluation of Literata and the
-night brick once deployed.
+- **Merge and deploy.** The branch merges to main as one turn; Brian pushes. The site turns on
+  the next publish.
+- **The motto** — pick a finalist and engrave it in the colophon (the em-rule holds the line).
+- **Post-deploy verdicts** — vitesse-light softness by day, Literata and the night brick on the
+  phone. Each has a documented remedy if wanted (§13).
+- Nothing is half-built; every instrument is complete and verified.
 
 **Working conventions — follow these.**
 
@@ -467,9 +469,11 @@ night brick once deployed.
 
 **Repo landmarks.** Tokens: `src/lib/styles/tokens.css`. The traced mark:
 `src/lib/components/monogram.js` (provenance: `plans/trace-monogram.mjs`). Components: `Device`,
-`Hero`, `Colophon`, `Grain`, `Quincunx`, `Header`. Markdown components under
-`src/lib/markdown/`. Shiki highlighter in `svelte.config.js`. Theme pre-paint script in
-`src/app.html`. Swatches: `plans/swatch/type-01.html`, `accent-02.html`, `rubric-03.html`.
+`Hero` (holds the flip + QR), `Colophon` (holds the theme switch), `Grain`, `Quincunx`, `Header`,
+`ThemeToggle`, `CopyButton`, `Icon`. The icon registry: `src/lib/icons.js`. The code-copy
+enhancer: `src/lib/actions/enhanceCode.js`. Markdown components under `src/lib/markdown/`. Shiki
+highlighter in `svelte.config.js`. Theme pre-paint script in `src/app.html`. Swatches under
+`plans/swatch/` (type-01, accent-02, rubric-03, manicule-04).
 
 **Heritage sources.** The monogram's only vector is the trace; original raster copies exist
 with Brian if higher fidelity is ever needed. The circuit-trace avatar (see decisions log) is

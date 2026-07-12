@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>manicule swatch 04 — the pointing hand vs the pointer</title>
+<!--
+  manicule swatch 04 · design-refresh §6 (plans/design-refresh.md)
+
+  Open question: does a manicule (the Renaissance reader's pointing hand)
+  work as the active marker at 13px, where it would replace the ▸ pointer
+  on the active nav item and the index cursor row? "Silhouette survives
+  14px, detail doesn't." Judged here at the real sizes it must hold, on
+  both grounds, in isolation and in context.
+
+  Options:
+    a — ▸  the current pointer (baseline)
+    b — ☞  the Unicode manicule, set in the page fonts (font-dependent)
+    c — a filled silhouette manicule (palm + finger + thumb), our own draw
+    d — a fine-line outline manicule, our own draw
+
+  The marker sits at the row start; the critical size is 13px.
+  Open directly, no build.
+-->
+<link
+  href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Literata:ital,wght@0,400..700;1,400..700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f6f3e9;
+    --ink: #181818;
+    --ink-muted: #5a5550;
+    --ink-faint: #a8a39c;
+    --rubric: #a83220;
+    --hairline: rgba(24, 24, 24, 0.08);
+    --hairline-strong: rgba(24, 24, 24, 0.12);
+  }
+  .night {
+    --bg: #121212;
+    --ink: #dbd7ca;
+    --ink-muted: #a49e91;
+    --ink-faint: #78736a;
+    --rubric: #a84a2c;
+    --hairline: rgba(219, 215, 202, 0.1);
+    --hairline-strong: rgba(219, 215, 202, 0.16);
+  }
+
+  body { background: #333; }
+  section {
+    background: var(--bg);
+    color: var(--ink);
+    padding: 2.5rem 2rem 3rem;
+    font-family: 'Literata', Georgia, serif;
+  }
+
+  h2 {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    box-shadow: inset 0 -1px 0 var(--hairline-strong);
+  }
+  h3 {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin: 1.75rem 0 0.7rem;
+  }
+
+  /* the size ladder */
+  .ladder { display: flex; align-items: baseline; gap: 2rem; }
+  .cell { display: flex; align-items: center; gap: 8px; }
+  .cell .m { color: var(--rubric); display: inline-flex; align-items: center; }
+  .cell .px { font-family: 'Geist Mono', monospace; font-size: 10px; color: var(--ink-faint); }
+
+  .pointer { color: var(--rubric); font-family: 'Geist Mono', monospace; }
+  .uni { color: var(--rubric); font-family: 'Geist Mono', serif; }
+
+  /* in-context: an index row + a nav */
+  .demo { max-width: 34rem; margin-top: 0.5rem; }
+  .row {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 12px 0;
+    box-shadow: inset 0 -1px 0 var(--hairline-strong);
+  }
+  .row .m { color: var(--rubric); display: inline-flex; align-items: center; align-self: center; }
+  .row .title { flex: 1; font-weight: 600; font-size: 19px; }
+  .row .date {
+    font-family: 'Geist Mono', monospace; font-size: 12.5px;
+    letter-spacing: 0.08em; color: var(--ink-faint);
+  }
+  .nav {
+    display: flex; gap: 15px; margin-top: 0.4rem;
+    font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.1em;
+    color: var(--ink-muted);
+  }
+  .nav .active { color: var(--ink); display: inline-flex; align-items: center; gap: 5px; }
+  .nav .active .m { color: var(--rubric); display: inline-flex; align-items: center; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+
+<template id="specimen">
+  <h2>manicule swatch 04 — GROUND</h2>
+
+  <h3>a · the pointer ▸ (baseline)</h3>
+  <div class="ladder">
+    <div class="cell"><span class="m pointer" style="font-size:13px">▸</span><span class="px">13</span></div>
+    <div class="cell"><span class="m pointer" style="font-size:16px">▸</span><span class="px">16</span></div>
+    <div class="cell"><span class="m pointer" style="font-size:19px">▸</span><span class="px">19</span></div>
+  </div>
+
+  <h3>b · the Unicode manicule ☞ (font-dependent)</h3>
+  <div class="ladder">
+    <div class="cell"><span class="m uni" style="font-size:13px">☞</span><span class="px">13</span></div>
+    <div class="cell"><span class="m uni" style="font-size:16px">☞</span><span class="px">16</span></div>
+    <div class="cell"><span class="m uni" style="font-size:19px">☞</span><span class="px">19</span></div>
+    <div class="cell"><span class="m uni" style="font-size:28px">☞</span><span class="px">28</span></div>
+  </div>
+
+  <h3>c · filled silhouette manicule (our draw)</h3>
+  <div class="ladder">
+    <div class="cell"><span class="m fill13"></span><span class="px">13</span></div>
+    <div class="cell"><span class="m fill16"></span><span class="px">16</span></div>
+    <div class="cell"><span class="m fill19"></span><span class="px">19</span></div>
+    <div class="cell"><span class="m fill28"></span><span class="px">28</span></div>
+  </div>
+
+  <h3>d · fine-line outline manicule (our draw)</h3>
+  <div class="ladder">
+    <div class="cell"><span class="m line13"></span><span class="px">13</span></div>
+    <div class="cell"><span class="m line16"></span><span class="px">16</span></div>
+    <div class="cell"><span class="m line19"></span><span class="px">19</span></div>
+    <div class="cell"><span class="m line28"></span><span class="px">28</span></div>
+  </div>
+
+  <h3>in context — the index cursor row (marker at 13)</h3>
+  <div class="demo">
+    <div class="row"><span class="m rowmark"></span><span class="title">Where to Learn Microtuning on the Web</span><span class="date">2021 · 02 · 27</span></div>
+    <div class="row"><span class="m pointer" style="font-size:13px">▸</span><span class="title">Deploying elm-pages to S3 Static Hosting</span><span class="date">2019 · 11 · 02</span></div>
+  </div>
+
+  <h3>in context — the active nav item (marker at 13)</h3>
+  <div class="nav">
+    <span class="active"><span class="m navmark"></span>blog</span>
+    <span>projects</span>
+    <span>about</span>
+  </div>
+</template>
+
+<section class="day"></section>
+<section class="night"></section>
+
+<script>
+  /* filled silhouette manicule: palm + extended index finger + thumb.
+     A pointing gesture; fill = engaged, which the active marker is. */
+  const fillHand = (color) =>
+    '<rect x="3.5" y="6.5" width="5.6" height="7" rx="2.7" fill="' + color + '"/>' +
+    '<rect x="8" y="7.6" width="7.6" height="2.3" rx="1.15" fill="' + color + '"/>' +
+    '<rect x="5" y="4.3" width="2.3" height="3.1" rx="1.15" fill="' + color + '"/>'
+
+  /* fine-line outline manicule: a hand pointing right, one stroke. */
+  const lineHand =
+    '<path d="M3.6 7.4 A2 2 0 0 1 5.6 6.4 A1.15 1.15 0 0 1 7.9 6.4 V7 H14.8 A1.15 1.15 0 0 1 14.8 9.3 H9.6 ' +
+    'A1.1 1.1 0 0 1 9.5 11.1 A1.1 1.1 0 0 1 7.9 12.4 A1.1 1.1 0 0 1 5.6 13 H5 A1.4 1.4 0 0 1 3.6 11.6 Z" ' +
+    'fill="none" stroke="COLOR" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>'
+
+  const svg = (size, inner) =>
+    '<svg width="' + size + '" height="' + size + '" viewBox="0 0 20 20">' + inner + '</svg>'
+
+  function paint(section) {
+    const cs = getComputedStyle(section)
+    const color = cs.getPropertyValue('--rubric').trim()
+    for (const px of [13, 16, 19, 28]) {
+      section.querySelector('.fill' + px).innerHTML = svg(px, fillHand(color))
+      section.querySelector('.line' + px).innerHTML = svg(px, lineHand.replaceAll('COLOR', color))
+    }
+    // in-context markers use the filled hand at 13 (the leading candidate)
+    section.querySelector('.rowmark').innerHTML = svg(13, fillHand(color))
+    section.querySelector('.navmark').innerHTML = svg(13, fillHand(color))
+  }
+
+  const tpl = document.getElementById('specimen')
+  for (const section of document.querySelectorAll('section')) {
+    section.appendChild(tpl.content.cloneNode(true))
+    const ground = section.classList.contains('day') ? 'day — cream paper' : 'night — night ink'
+    section.querySelector('h2').textContent = '// manicule swatch 04 · ' + ground
+    paint(section)
+  }
+</script>
+
+</body>
+</html>
