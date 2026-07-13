@@ -95,4 +95,18 @@
     content: '▸ ';
     color: var(--rubric);
   }
+
+  /* the arrow adds width the two-column nav runs out of on a narrow screen:
+     below about 480px the active link starts wrapping under it. So here we
+     drop the arrow and mark the current page by coloring its text with the
+     rubric instead. */
+  @media (max-width: 30rem) {
+    .link.active {
+      color: var(--rubric);
+    }
+
+    .link.active::before {
+      content: none;
+    }
+  }
 </style>
