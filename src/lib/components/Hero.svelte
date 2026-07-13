@@ -1,6 +1,5 @@
 <script>
   import { encode } from 'uqr'
-  import { MONOGRAM_PATH } from '$lib/components/monogram.js'
 
   /* Browne's reticulated Network: a rhombic lattice built from two basis
    * vectors, the same substrate the family draws everywhere. The device
@@ -77,6 +76,27 @@
     >
       <div class="face front">
         <svg viewBox="0 0 {W} {H}" aria-hidden="true">
+          <defs>
+            <!-- the impression: the original raster's alpha tints the mark;
+                 mask-type alpha reads the image's transparency, not luminance -->
+            <mask
+              id="monogram-grit-mask"
+              style="mask-type: alpha"
+              maskUnits="userSpaceOnUse"
+              x={CX - MARK / 2}
+              y={CY - MARK / 2}
+              width={MARK}
+              height={MARK}
+            >
+              <image
+                href="/monogram-grit.png"
+                x={CX - MARK / 2}
+                y={CY - MARK / 2}
+                width={MARK}
+                height={MARK}
+              />
+            </mask>
+          </defs>
           <g class="net">
             {#each lines as line}
               <line x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} />
@@ -93,12 +113,14 @@
             </g>
           {/each}
 
-          <g
+          <rect
             class="mark"
-            transform="translate({CX - MARK / 2} {CY - MARK / 2}) scale({MARK / 600})"
-          >
-            <path d={MONOGRAM_PATH} fill-rule="evenodd" />
-          </g>
+            x={CX - MARK / 2}
+            y={CY - MARK / 2}
+            width={MARK}
+            height={MARK}
+            mask="url(#monogram-grit-mask)"
+          />
         </svg>
       </div>
 
@@ -223,8 +245,8 @@
     stroke-width: 1;
   }
 
-  .mark path {
-    fill: var(--ink);
+  .mark {
+    fill: var(--w-ink);
   }
 
   /* back — the contact plate, fixed light in both themes so it always scans */
