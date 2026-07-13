@@ -82,7 +82,7 @@
             <a href={project.links.external} target="_blank" rel="noopener noreferrer">play »</a>
           {/if}
           {#if project.links.post}
-            <a href={project.links.post} target="_blank" rel="noopener noreferrer">read more</a>
+            <a href={project.links.post}>read more</a>
           {/if}
         </nav>
       </article>

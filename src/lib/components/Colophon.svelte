@@ -6,7 +6,7 @@
 <footer>
   <div id="inner">
     <nav>
-      <a href="/feed.xml" target="_blank" rel="noopener noreferrer">feed</a>
+      <a href="/feed.xml">feed</a>
       <span class="sep">·</span>
       <a href="https://github.com/bgins/svelte-blog" target="_blank" rel="noopener noreferrer">
         source
