@@ -224,7 +224,7 @@
   }
 
   .mark path {
-    fill: var(--rubric);
+    fill: var(--ink);
   }
 
   /* back — the contact plate, fixed light in both themes so it always scans */

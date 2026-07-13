@@ -6,8 +6,6 @@
 <footer>
   <div id="inner">
     <div id="seal"><Device size={44} /></div>
-    <div id="motto" aria-hidden="true">———</div>
-    <div id="head">// colophon</div>
     <nav>
       <a href="/feed.xml">feed</a>
       <span class="sep">·</span>
@@ -45,19 +43,8 @@
   }
 
   #seal {
-    color: var(--rubric);
-    padding-bottom: 2px;
-  }
-
-  #motto {
-    color: var(--w-faint);
-  }
-
-  #head {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--ink-muted);
+    color: var(--ink);
+    padding-bottom: 4px;
   }
 
   nav {
