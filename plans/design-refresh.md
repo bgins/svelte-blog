@@ -86,6 +86,29 @@ status: proposal, v3 · 2026-07-08
   dependency for the QR. The manicule was prototyped and declined (see §6). Reduced-motion cuts
   the flip and the pulse. All on `foundation-tokens`.
 
+- **2026-07-12 — the closing rounds.**
+  - **New-tab scoping corrected:** only off-site links open a new tab; same-site navigation stays
+    in-tab (restores client-side routing). The markdown link component decides by scheme.
+  - **The motto placed:** *sublimare*, faint Literata italic, floating just above the footer
+    divider on About only (opt-in frontmatter). The seal-legend and tailpiece-plate options were
+    swatched (`plans/swatch/motto-06.html`) and passed over.
+  - **Content refresh:** hero tagline is "Software engineer developing identity, authority, and
+    mesh."; About prose reads nine years / "web, infra, and decentralized systems"; About meta
+    matches the tagline.
+  - **"Syntactic Overdrive" retired for "Brian Ginsburg"** across titles, og:site_name,
+    application-name, RSS feed name, and the web manifest. The wordmark stays `:: bgins ::`.
+    Social description: "Building identity, authority, and mesh." The OG card redrawn (seal +
+    wordmark + tagline, no site name). `og:url` fixed to the real domain (was a prerender
+    placeholder host).
+  - **Favicon reverted to the original `favicon.png`** (cream roundel reads at tab size in any
+    theme); the SVG favicon showed a bare white glyph on dark tab bars. The traced vector module
+    (`monogram.js`) retired with it — the grit-mask impression is the only mark in product code.
+  - **FLP presentation added as the first project** (`bgins.github.io/flp-present`), carded with
+    its own social preview; titled "A visual walkthrough of Impossibility of Distributed
+    Consensus with One Faulty Process."
+  - **Fix:** code blocks were escaping the column without a scrollbar — the copy-control wrapper
+    was an unconstrained flex item; it is now held to the column width.
+
 Sources of truth consulted:
 
 - `~/code/networking/flp-demo/DESIGN-LANGUAGE.md` — the manifesto (the two Dürer hands, the engraving register)
@@ -459,21 +482,22 @@ decided — Literata body, EB Garamond display, Geist Mono machine voice, vermil
 
 The decisions log above is the authority on choices.
 
-**Branch.** `foundation-tokens`, unpushed and unmerged, ~two dozen commits on top of main. Main
-carries only the housekeeping release (Svelte 5, prerendered index, CI fixes), which is live.
-The entire visual refresh ships when this branch merges. Every commit was verified before
+**Branch.** `foundation-tokens`, unpushed and unmerged, ~35 commits on top of main. Main carries
+only the housekeeping release (Svelte 5, prerendered index, CI fixes), which is live at
+brianginsburg.com — none of the visual refresh is deployed yet. Every commit was verified before
 landing: production build, svelte-check, prettier + eslint, the Playwright suite, and browser
-screenshots on both grounds.
+checks on both grounds.
 
-**All four design phases are built (§12).** The foundation, the book, the device, and the
-instruments are done on the branch. What remains before the refresh is finished:
+**Everything is built and every design question is answered.** All four phases (§12), the
+post-review revisions (the gritted sepia mark, the printer's-order colophon), the motto, the
+content refresh, and the social identity (Brian Ginsburg / new OG card / original favicon) are
+done on the branch. Nothing is half-built. What remains:
 
 - **Merge and deploy.** The branch merges to main as one turn; Brian pushes. The site turns on
-  the next publish.
-- **The motto** — pick a finalist and engrave it in the colophon (the em-rule holds the line).
+  the next publish. Social scrapers cache OG data — an already-shared link may need a re-scrape
+  via the platform's validator.
 - **Post-deploy verdicts** — vitesse-light softness by day, Literata and the night brick on the
-  phone. Each has a documented remedy if wanted (§13).
-- Nothing is half-built; every instrument is complete and verified.
+  phone. Each has a documented remedy (§13).
 
 **Working conventions — follow these.**
 
@@ -490,14 +514,22 @@ instruments are done on the branch. What remains before the refresh is finished:
   real browser, day and night.
 - Prettier exempts `src/routes/posts` and `plans`; never let it reformat published content.
 
-**Repo landmarks.** Tokens: `src/lib/styles/tokens.css`. The traced mark:
-`src/lib/components/monogram.js` (provenance: `plans/trace-monogram.mjs`). Components: `Device`,
-`Hero` (holds the flip + QR), `Colophon` (holds the theme switch), `Grain`, `Quincunx`, `Header`,
-`ThemeToggle`, `CopyButton`, `Icon`. The icon registry: `src/lib/icons.js`. The code-copy
-enhancer: `src/lib/actions/enhanceCode.js`. Markdown components under `src/lib/markdown/`. Shiki
-highlighter in `svelte.config.js`. Theme pre-paint script in `src/app.html`. Swatches under
-`plans/swatch/` (type-01, accent-02, rubric-03, manicule-04).
+**Repo landmarks.** Tokens: `src/lib/styles/tokens.css`. The mark ships as the gritted raster
+impression: `static/monogram-grit.png`, tinted via mask in `Device.svelte` and the hero (SVG
+alpha mask). Trace + grit provenance: `plans/trace-monogram.mjs` (the traced vector module was
+retired). Components: `Device`, `Hero` (holds the flip + QR + tagline), `Colophon` (theme
+switch, seal-last order), `Grain`, `Quincunx`, `Header`, `ThemeToggle`, `CopyButton`, `Icon`.
+The icon registry: `src/lib/icons.js`. The code-copy enhancer: `src/lib/actions/enhanceCode.js`
+(its `.code-block` wrapper must stay width-constrained — see the closing-rounds log entry).
+Markdown components under `src/lib/markdown/` (page layout carries opt-in `hero` and `motto`
+frontmatter). Shiki highlighter in `svelte.config.js`. Theme pre-paint script in `src/app.html`.
+Swatches under `plans/swatch/` (type-01, accent-02, rubric-03, manicule-04, mark-05, motto-06).
 
-**Heritage sources.** The monogram's only vector is the trace; original raster copies exist
-with Brian if higher fidelity is ever needed. The circuit-trace avatar (see decisions log) is
-recorded but unused.
+**Heritage sources.** The mark's source of record is `static/favicon.png` (also the favicon);
+the grit mask was extracted from it. Original raster copies exist with Brian if higher fidelity
+is ever needed. The circuit-trace avatar (see decisions log) is recorded but unused.
+
+**Tooling note.** The Chrome DevTools MCP browser is a separate Chrome instance with its own
+profile; test-session theme overrides (`localStorage['theme']`) live there, not in Brian's
+browser. Kill stale instances with `pkill -f chrome-devtools-mcp` when it refuses new pages, and
+don't mistake its window for Brian's when he reports what he sees.
