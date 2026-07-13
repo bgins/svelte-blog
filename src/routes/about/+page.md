@@ -3,6 +3,7 @@ layout: page
 title: About
 description: Brian Ginsburg is a software engineer developing web and decentralized systems
 hero: true
+motto: sublimare
 ---
 
 I am a software engineer with seven years experience implementing web and decentralized systems.

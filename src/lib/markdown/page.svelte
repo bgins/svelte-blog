@@ -21,8 +21,8 @@
   import { page } from '$app/stores'
   import Hero from '$lib/components/Hero.svelte'
 
-  /** @type {{ title: string, description: string, hero?: boolean, children?: import('svelte').Snippet }} */
-  let { title, description, hero = false, children } = $props()
+  /** @type {{ title: string, description: string, hero?: boolean, motto?: string, children?: import('svelte').Snippet }} */
+  let { title, description, hero = false, motto = '', children } = $props()
 </script>
 
 <svelte:head>
@@ -47,6 +47,10 @@
   <div id="content">
     {@render children?.()}
   </div>
+
+  {#if motto}
+    <p class="motto">{motto}</p>
+  {/if}
 </div>
 
 <style>
@@ -78,5 +82,17 @@
 
   #layout > h1.below-hero {
     padding-top: 26px;
+  }
+
+  /* a faint motto, floated above the footer divider */
+  .motto {
+    margin: 5rem 0 0;
+    text-align: center;
+
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    color: var(--w-faint);
   }
 </style>
