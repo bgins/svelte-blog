@@ -25,3 +25,17 @@ potrace.trace(
     console.log('traced to /tmp/monogram-trace.svg')
   }
 )
+
+/* Addendum — the grit mask (static/monogram-grit.png).
+ *
+ * The traced vector above proved too clean for display sizes: it kept the
+ * hand-drawn wobble but lost the printed texture. The site therefore tints
+ * the ORIGINAL raster through an alpha mask at display sizes, and keeps the
+ * vector only for tiny geometric duties (favicon.svg).
+ *
+ * The mask was extracted in-browser from static/favicon.png: per pixel,
+ * luminance L is mapped to alpha as a = clamp(((maxL - L)/(maxL - minL)
+ * - 0.06) / 0.88), RGB forced to black. This keeps the soft edge pixels
+ * (the grit) as partial alpha. See mark swatch 05 for the audit that
+ * decided this.
+ */

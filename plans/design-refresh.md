@@ -67,6 +67,17 @@ status: proposal, v3 · 2026-07-08
   `--ink`, not vermilion (too loud); the OG card regenerated to match. The hero plate moved off
   the home page (now blog-only) to the top of the **About** page. The colophon dropped its
   `// colophon` head and the em-rule motto placeholder — quiet furniture now.
+- **2026-07-12 — the mark regains its grit; the device closes the page.** Brian's review: the
+  traced vector had lost the original's character, and flat color read as a sticker in any hue.
+  Mark swatch 05 (`plans/swatch/mark-05.html`) audited four materials × three inks on both
+  grounds. Decided: **the true raster** — the original mark's alpha (soft edges intact),
+  extracted to `static/monogram-grit.png` and tinted through a mask — **in the sepia register**
+  (`--w-ink` at hero scale, `--w-muted` in the colophon). Material first, hue second: with grit
+  restored, sepia reads as an aged plate. The **colophon reordered to the printer's order** —
+  controls in one row (feed · source · theme), the set line, and the seal *last*, closing the
+  page as a signature; position now carries the identity, ending the weight-tuning cycle. Brand
+  assets (og, apple-touch, manifest icons) regenerated in sepia grit; `favicon.svg` stays the
+  traced vector, which remains correct at tiny sizes where grit is noise.
 - **2026-07-12 — the instruments built (§9).** A theme switch (sun/moon glyph, three detents,
   in the colophon); the device flip (the seal turns to a scannable QR contact plate, verified to
   decode `https://github.com/bgins`, plate fixed-light both grounds); a copy control on code
