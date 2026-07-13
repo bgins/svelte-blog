@@ -1,14 +1,16 @@
-/* Provenance for src/lib/components/monogram.js and static/favicon.svg.
+/* Provenance for the monogram vector trace (historical).
  *
- * The monogram vector was traced from static/favicon.png (the only surviving
- * copy of the original mark) with the potrace npm package. To rerun:
+ * The monogram was once traced from static/favicon.png (the original mark)
+ * with the potrace npm package. That vector and its SVG favicon have since
+ * been retired: the mark ships as the gritted raster impression (see the
+ * addendum below), and the favicon is the original static/favicon.png, which
+ * keeps its cream ground and reads at tab size. This script is kept as the
+ * record of how the vector and the grit mask were derived. To rerun:
  *
  *   npm i -D potrace
  *   node plans/trace-monogram.mjs
  *
- * then re-extract the path into src/lib/components/monogram.js. The potrace
- * dependency is not kept installed; this script is the record of how the
- * asset was made and with which parameters.
+ * The potrace dependency is not kept installed.
  */
 import { createRequire } from 'node:module'
 import { writeFileSync } from 'node:fs'

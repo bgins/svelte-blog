@@ -1,8 +1,6 @@
 <script>
   /* The mark as an impression: the original raster's alpha (soft edges and
-   * all, extracted to static/monogram-grit.png) tinted by currentColor.
-   * The traced vector (monogram.js) stays for the tiny geometric duties —
-   * favicon and construction contexts — where grit would read as noise. */
+   * all, extracted to static/monogram-grit.png) tinted by currentColor. */
   /** @type {{ size?: number }} */
   let { size = 300 } = $props()
 </script>
