@@ -160,4 +160,24 @@
     color: var(--ink-faint);
     white-space: nowrap;
   }
+
+  /* On a narrow phone the fixed-width date crowds the title into a sliver. Stack
+     the row so the title spans the full width and the date sits beneath it as a
+     caption. The marker is a hover affordance with no touch equivalent, so it is
+     dropped here and both lines align to the left edge. */
+  @media (max-width: 30rem) {
+    .row {
+      flex-wrap: wrap;
+      row-gap: 4px;
+    }
+
+    .marker {
+      display: none;
+    }
+
+    .title,
+    .date {
+      flex-basis: 100%;
+    }
+  }
 </style>
