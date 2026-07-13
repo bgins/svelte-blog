@@ -56,9 +56,12 @@ pre.shiki {
 }
 
 /* wraps each code block so the copy control can position against it
- * (see actions/enhanceCode.js) */
+ * (see actions/enhanceCode.js). width + min-width hold the wrapper to the
+ * column so the pre inside scrolls instead of the whole block overflowing */
 .code-block {
   position: relative;
+  width: 100%;
+  min-width: 0;
 }
 
 ul > li::before {
