@@ -1,6 +1,5 @@
 <script>
   import { page } from '$app/stores'
-  import Hero from '$lib/components/Hero.svelte'
   import { formatDate } from '$lib/utils'
 
   /** @type {{ data: { posts: { slug: string, title: string, published: string }[] } }} */
@@ -58,7 +57,6 @@
 </svelte:head>
 
 <div id="layout">
-  <Hero />
   <h1>Blog</h1>
   <div id="content">
     {#each flat as post, i (post.slug)}
@@ -90,7 +88,6 @@
 
   h1 {
     margin: 0;
-    padding-top: 26px;
 
     font-family: var(--font-display);
     font-weight: 500;

@@ -19,9 +19,10 @@
 
 <script>
   import { page } from '$app/stores'
+  import Hero from '$lib/components/Hero.svelte'
 
-  /** @type {{ title: string, description: string, children?: import('svelte').Snippet }} */
-  let { title, description, children } = $props()
+  /** @type {{ title: string, description: string, hero?: boolean, children?: import('svelte').Snippet }} */
+  let { title, description, hero = false, children } = $props()
 </script>
 
 <svelte:head>
@@ -38,7 +39,10 @@
 </svelte:head>
 
 <div id="layout">
-  <h1>{title}</h1>
+  {#if hero}
+    <Hero />
+  {/if}
+  <h1 class:below-hero={hero}>{title}</h1>
 
   <div id="content">
     {@render children?.()}
@@ -70,5 +74,9 @@
     font-weight: 500;
     font-size: 34px;
     line-height: 1.2;
+  }
+
+  #layout > h1.below-hero {
+    padding-top: 26px;
   }
 </style>
