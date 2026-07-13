@@ -5,16 +5,17 @@
 
 <footer>
   <div id="inner">
-    <div id="seal"><Device size={44} /></div>
     <nav>
       <a href="/feed.xml" target="_blank" rel="noopener noreferrer">feed</a>
       <span class="sep">·</span>
       <a href="https://github.com/bgins/svelte-blog" target="_blank" rel="noopener noreferrer">
         source
       </a>
+      <span class="sep">·</span>
+      <ThemeToggle />
     </nav>
-    <ThemeToggle />
     <div id="set">set in Literata &amp; Geist Mono · Svelte · S3</div>
+    <div id="seal"><Device size={44} /></div>
   </div>
 </footer>
 
@@ -44,14 +45,10 @@
     letter-spacing: 0.08em;
   }
 
-  #seal {
-    color: var(--ink-muted);
-    padding-bottom: 4px;
-  }
-
   nav {
     display: flex;
     gap: 10px;
+    align-items: center;
   }
 
   nav > a {
@@ -73,5 +70,11 @@
     font-size: 14px;
     letter-spacing: normal;
     color: var(--w-muted);
+  }
+
+  /* the device closes the page, in the mark's sepia */
+  #seal {
+    color: var(--w-muted);
+    padding-top: 8px;
   }
 </style>
