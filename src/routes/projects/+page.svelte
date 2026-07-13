@@ -5,6 +5,17 @@
 
   const projects = [
     {
+      title: 'FLP',
+      image: 'flp-present.png',
+      alt: 'Title card for the FLP presentation',
+      description:
+        'A visual walkthrough of the 1985 FLP proof that no asynchronous protocol can tolerate even a single unannounced process death.',
+      links: {
+        external: 'https://bgins.github.io/flp-present/',
+        post: null
+      }
+    },
+    {
       title: 'Coincident Spectra',
       image: 'coincident-spectra.png',
       alt: 'Screenshot of Coincident Spectra',
