@@ -38,7 +38,7 @@
   <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
 </svelte:head>
 
-<div id="layout">
+<div id="layout" class:has-motto={motto}>
   {#if hero}
     <Hero />
   {/if}
@@ -84,9 +84,18 @@
     padding-top: 26px;
   }
 
-  /* a faint motto, floated above the footer divider */
+  /* a faint motto that hugs just above the footer divider at any window
+   * height: the page becomes a flex column filling the viewport, and the
+   * motto is pushed to its foot with margin-top auto, then pulled the last
+   * few pixels into the footer's top gap */
+  #layout.has-motto {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
   .motto {
-    margin: 5rem 0 0;
+    margin: auto 0 -40px;
     text-align: center;
 
     font-family: var(--font-body);
