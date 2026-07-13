@@ -276,6 +276,13 @@ alchemy on the paper side, state-change on the cypherpunk side. Shortlist for th
 
 Hold *solve et sublima* and *sublimate* as finalists; live with both before engraving.
 
+**Decided 2026-07-12: *sublimare*, the bare infinitive.** Not an imperative or a full phrase but
+the naked verb — "to raise on high, to sublime" — the act itself, unconjugated. Placement: not
+the seal legend (swatch 06 audited that and the tailpiece plate) but a **faint italic line
+floating at the foot of the About page**, above the footer divider, in the faint sepia. Brian's
+call: downplayed, floated, not performed. The page layout carries it as opt-in frontmatter, set
+only on About.
+
 ## 5. the device — the monogram becomes the site's printer's mark
 
 Each surface in the family carries its own device: next has the b2 core and the volvelle, flp has
@@ -444,11 +451,9 @@ attribute present, index prerendered, feed URLs normalized).
 decided — Literata body, EB Garamond display, Geist Mono machine voice, vermilion `#a83220` day /
 `#a84a2c` night.)
 
-1. **Motto finalist:** *solve et sublima* vs. *sublimate* (§4) — live with both before engraving;
-   the em-rule holds the line in the colophon.
-2. **Vitesse-light softness:** Brian's verdict pending — if code reads too soft by day, deepen
+1. **Vitesse-light softness:** Brian's verdict pending — if code reads too soft by day, deepen
    the palest hues with Shiki `colorReplacements` in `svelte.config.js`.
-3. **Phone evaluation** of Literata and the night brick, once deployed.
+2. **Phone evaluation** of Literata and the night brick, once deployed.
 
 ## 14. state of the work — handoff
 
