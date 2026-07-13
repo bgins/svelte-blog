@@ -32,15 +32,19 @@
   </main>
 
   <Colophon />
-</div>
 
-<Grain />
+  <Grain />
+</div>
 
 <style>
   #app {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
+
+    /* anchors the grain, which covers the whole document rather than just the
+       viewport (see Grain.svelte) */
+    position: relative;
   }
 
   main {
