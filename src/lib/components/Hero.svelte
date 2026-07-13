@@ -151,11 +151,10 @@
     bgins
     <span class="c">::</span>
   </div>
-  <div id="caption">
+  <div id="caption" class:flipped>
+    <span class="tagline">Software engineer developing identity, authority, and mesh.</span>
     {#if flipped}
-      <a href={CONTACT} target="_blank" rel="noopener noreferrer">github.com/bgins</a>
-    {:else}
-      Software engineer developing identity, authority, and mesh.
+      <a class="url" href={CONTACT} target="_blank" rel="noopener noreferrer">github.com/bgins</a>
     {/if}
   </div>
 </div>
@@ -285,7 +284,11 @@
     color: var(--rubric);
   }
 
+  /* the tagline holds the caption's height at any width. When the seal is
+     turned, the url overlays its first line and the tagline stays (hidden) to
+     keep that height, so the content below never jumps. */
   #caption {
+    position: relative;
     min-height: 1.5em;
 
     font-style: italic;
@@ -294,7 +297,16 @@
     text-align: center;
   }
 
-  #caption a {
+  #caption.flipped .tagline {
+    visibility: hidden;
+  }
+
+  #caption .url {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
     font-family: var(--font-mono);
     font-style: normal;
     font-size: 13px;
@@ -303,7 +315,7 @@
     text-decoration: none;
   }
 
-  #caption a:hover {
+  #caption .url:hover {
     color: var(--rubric);
   }
 </style>
