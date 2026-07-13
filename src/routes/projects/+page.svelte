@@ -8,6 +8,7 @@
       title:
         'No completely asynchronous consensus protocol can tolerate even a single unannounced process death',
       image: 'flp-present.png',
+      imageNarrow: 'flp-gate.png',
       alt: 'Title card for the FLP presentation',
       description:
         'A visual walkthrough of Impossibility of Distributed Consensus with One Faulty Process',
@@ -73,18 +74,29 @@
   <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
 </svelte:head>
 
+{#snippet media(/** @type {(typeof projects)[number]} */ project)}
+  {#if project.imageNarrow}
+    <picture>
+      <source media="(max-width: 30rem)" srcset="/images/projects/{project.imageNarrow}" />
+      <img src="/images/projects/{project.image}" alt={project.alt} />
+    </picture>
+  {:else}
+    <img src="/images/projects/{project.image}" alt={project.alt} />
+  {/if}
+{/snippet}
+
 <div id="layout">
   <h1>Projects</h1>
   <div id="content">
     {#each projects as project, i (project.title)}
       <article class="plate">
-        <figure>
+        <figure class:has-narrow={project.imageNarrow}>
           {#if project.links.external}
             <a href={project.links.external} target="_blank" rel="noopener noreferrer">
-              <img src="/images/projects/{project.image}" alt={project.alt} />
+              {@render media(project)}
             </a>
           {:else}
-            <img src="/images/projects/{project.image}" alt={project.alt} />
+            {@render media(project)}
           {/if}
           <figcaption>Tab. {numerals[i]} · {project.title}</figcaption>
         </figure>
@@ -144,6 +156,15 @@
     object-fit: cover;
     width: 100%;
     height: 300px;
+  }
+
+  /* on a phone the FLP card swaps to its portrait title-card (see the picture
+     source above); show it whole at its own aspect instead of cropping it to
+     the landscape slot */
+  @media (max-width: 30rem) {
+    figure.has-narrow img {
+      height: auto;
+    }
   }
 
   figcaption {
