@@ -109,6 +109,12 @@ status: proposal, v3 · 2026-07-08
   - **Fix:** code blocks were escaping the column without a scrollbar — the copy-control wrapper
     was an unconstrained flex item; it is now held to the column width.
 
+- **2026-07-13 — the favicon becomes an impression.** The cream-ground raster is retired as the
+  shipped favicon and kept as the source of record at `static/monogram-source.png`. The favicon is
+  now the grit mask tinted in the muted sepia on a transparent ground, so the mark reads on light
+  and dark surfaces alike and sheds the white square that jarred on dark surfaces like Slack
+  unfurls and dark tab bars. It supersedes the cream-favicon revert above.
+
 Sources of truth consulted:
 
 - `~/code/networking/flp-demo/DESIGN-LANGUAGE.md` — the manifesto (the two Dürer hands, the engraving register)
@@ -525,8 +531,9 @@ Markdown components under `src/lib/markdown/` (page layout carries opt-in `hero`
 frontmatter). Shiki highlighter in `svelte.config.js`. Theme pre-paint script in `src/app.html`.
 Swatches under `plans/swatch/` (type-01, accent-02, rubric-03, manicule-04, mark-05, motto-06).
 
-**Heritage sources.** The mark's source of record is `static/favicon.png` (also the favicon);
-the grit mask was extracted from it. Original raster copies exist with Brian if higher fidelity
+**Heritage sources.** The mark's source of record is `static/monogram-source.png`.
+The grit mask was extracted from it, and the shipped favicon is that mask tinted sepia on a
+transparent ground. Original raster copies exist with Brian if higher fidelity
 is ever needed. The circuit-trace avatar (see decisions log) is recorded but unused.
 
 **Tooling note.** The Chrome DevTools MCP browser is a separate Chrome instance with its own
