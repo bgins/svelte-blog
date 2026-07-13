@@ -1,26 +1,42 @@
-<header>
-  <div id="top"></div>
+<script>
+  import { page } from '$app/stores'
 
+  const links = [
+    { href: '/', label: 'blog' },
+    { href: '/projects', label: 'projects' },
+    { href: '/about', label: 'about' }
+  ]
+
+  /**
+   * @param {string} href
+   * @param {string} pathname
+   */
+  function isActive(href, pathname) {
+    if (href === '/') return pathname === '/' || pathname.startsWith('/posts')
+    return pathname.startsWith(href)
+  }
+</script>
+
+<header>
   <div id="content">
-    <div id="brand">
-      <a class="link" href="/" rel="noopener noreferrer">Syntactic Overdrive</a>
-    </div>
+    <a id="brand" href="/">
+      <span class="c">::</span>
+      bgins
+      <span class="c">::</span>
+    </a>
     <nav>
-      <a class="link" href="/" rel="noopener noreferrer">Blog</a>
-      <a class="link" href="/projects" rel="noopener noreferrer">Projects</a>
-      <a class="link" href="/about" rel="noopener noreferrer">About</a>
+      {#each links as link}
+        <a class="link" class:active={isActive(link.href, $page.url.pathname)} href={link.href}>
+          {link.label}
+        </a>
+      {/each}
     </nav>
   </div>
 </header>
 
 <style>
   header {
-    display: grid;
-    grid-template-rows: 4px 1fr;
-  }
-
-  header > #top {
-    background-color: #8e182e;
+    box-shadow: inset 0 -1px 0 var(--hairline-strong);
   }
 
   header > #content {
@@ -28,26 +44,69 @@
     grid-template-columns: 1fr 1fr;
     padding: 22px 25px 18px 25px;
 
-    font-family: 'Rosario';
-    border-bottom: 1px solid #293d2954;
+    font-family: var(--font-mono);
+    font-feature-settings:
+      'ss01' on,
+      'ss02' on;
   }
 
-  header > #content > #brand {
-    display: grid;
-    font-size: 28px;
+  #brand {
+    display: flex;
+    align-items: center;
+    gap: 0.45em;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+
+    color: var(--ink);
+    text-decoration: none;
   }
 
-  header > #content > nav {
+  #brand > .c {
+    color: var(--rubric);
+  }
+
+  nav {
     display: flex;
     gap: 15px;
     align-items: center;
     justify-content: end;
 
-    font-size: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
   }
 
   .link {
-    color: #000000;
+    color: var(--ink-muted);
     text-decoration: none;
+  }
+
+  .link:hover {
+    color: var(--ink);
+  }
+
+  .link.active {
+    color: var(--ink);
+  }
+
+  .link.active::before {
+    content: '▸ ';
+    color: var(--rubric);
+  }
+
+  /* the arrow adds width the two-column nav runs out of on a narrow screen:
+     below about 480px the active link starts wrapping under it. So here we
+     drop the arrow and mark the current page by coloring its text with the
+     rubric instead. */
+  @media (max-width: 30rem) {
+    .link.active {
+      color: var(--rubric);
+    }
+
+    .link.active::before {
+      content: none;
+    }
   }
 </style>

@@ -1,5 +1,15 @@
 <script lang="ts">
+  import '@fontsource-variable/literata'
+  import '@fontsource-variable/literata/wght-italic.css'
+  import '@fontsource-variable/eb-garamond'
+  import '@fontsource-variable/eb-garamond/wght-italic.css'
+  import '@fontsource/geist-mono/400.css'
+  import '@fontsource/geist-mono/500.css'
+  import '@fontsource/geist-mono/600.css'
+  import '@fontsource/geist-mono/700.css'
   import '../styles.css'
+  import Colophon from '$lib/components/Colophon.svelte'
+  import Grain from '$lib/components/Grain.svelte'
   import Header from '$lib/components/Header.svelte'
 
   let { children } = $props()
@@ -9,22 +19,37 @@
   <link
     rel="alternate"
     type="application/rss+xml"
-    title="Syntactic Overdrive Feed"
+    title="Brian Ginsburg Feed"
     href={`${import.meta.env.VITE_ORIGIN}/feed.xml`}
   />
 </svelte:head>
 
-<Header />
+<div id="app">
+  <Header />
 
-<main>
-  {@render children()}
-</main>
+  <main>
+    {@render children()}
+  </main>
+
+  <Colophon />
+
+  <Grain />
+</div>
 
 <style>
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+
+    /* anchors the grain, which covers the whole document rather than just the
+       viewport (see Grain.svelte) */
+    position: relative;
+  }
+
   main {
     display: flex;
     justify-content: center;
-
-    font-family: 'Lato', sans-serif;
+    flex: 1;
   }
 </style>

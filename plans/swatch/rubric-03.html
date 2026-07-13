@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>rubric swatch 03 — the night vermilion, darker and brick</title>
+<!--
+  rubric swatch 03 · design-refresh (plans/design-refresh.md)
+
+  The provisional night vermilion (#cf7a68) reads salmon on night ink,
+  too pink. Feedback 2026-07-12: darker and brick. Four candidates below,
+  each shown in every role the hue plays: versal, active marker, lit
+  colons, and link hover. Day (#a83220) is decided and shown once at the
+  bottom for reference.
+
+  Judge on the night ground, ideally on the phone. Open directly, no build.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist+Mono:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #121212;
+    color: #dbd7ca;
+    font-family: 'Alegreya', Georgia, serif;
+    font-size: 17.5px;
+    line-height: 1.65;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+  .col { max-width: 38rem; margin: 0 auto; }
+
+  .mono, .label, .swatch-head, .wordmark, .row-date, .marker {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-feature-settings: 'ss01' on, 'ss02' on;
+  }
+  .swatch-head {
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #a49e91;
+    padding-bottom: 0.75rem;
+    margin-bottom: 2.5rem;
+    box-shadow: inset 0 -1px 0 rgba(219, 215, 202, 0.16);
+  }
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #78736a;
+    margin: 2.5rem 0 0.6rem;
+  }
+
+  .candidate { --rubric: #cf7a68; }
+  .c-a { --rubric: #cf7a68; } /* current — the salmon complaint */
+  .c-b { --rubric: #c4664a; }
+  .c-c { --rubric: #b65535; }
+  .c-d { --rubric: #a84a2c; }
+
+  .versal::first-letter {
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    color: var(--rubric);
+    margin-right: 0.14em;
+  }
+  @supports not ((initial-letter: 3) or (-webkit-initial-letter: 3)) {
+    .versal::first-letter {
+      float: left; font-size: 3.1em; line-height: 0.85;
+      padding-top: 0.08em; margin-right: 0.12em;
+    }
+  }
+
+  .roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: baseline;
+    margin-top: 0.75rem;
+  }
+  .wordmark {
+    font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.15em;
+  }
+  .wordmark .c { color: var(--rubric); }
+  .index-line { display: flex; gap: 0.75rem; align-items: baseline; }
+  .marker { color: var(--rubric); font-size: 13px; }
+  .index-line .title { font-weight: 600; font-size: 19px; }
+  .hover-link {
+    color: var(--rubric);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .day {
+    background: #f6f3e9;
+    color: #181818;
+    margin: 3.5rem -1.5rem -5rem;
+    padding: 2.5rem 1.5rem 3.5rem;
+  }
+  .day .candidate { --rubric: #a83220; }
+  .day .label { color: #a8a39c; }
+
+  .grain {
+    position: fixed; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<svg class="grain" aria-hidden="true">
+  <filter id="grain-f">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" />
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain-f)" />
+</svg>
+
+<div class="col">
+  <div class="swatch-head">// rubric swatch 03 · the night vermilion · darker and brick</div>
+
+  <div class="label">a — #cf7a68 · current (the salmon complaint)</div>
+  <div class="candidate c-a">
+    <p class="versal">The Everywhere Computer is an emerging decentralized platform that aims
+      to distribute computational tasks across a vast, open network, spanning from your
+      personal machine to devices on your LAN and nodes at the edge of the Internet.</p>
+    <div class="roles">
+      <span class="wordmark"><span class="c">::</span> bgins <span class="c">::</span></span>
+      <span class="index-line"><span class="marker">▸</span><span class="title">Functions Everywhere, Only Once</span></span>
+      <span><a class="hover-link" href="#">a hovered link</a></span>
+    </div>
+  </div>
+
+  <div class="label">b — #c4664a · one step darker, warmer</div>
+  <div class="candidate c-b">
+    <p class="versal">The Everywhere Computer is an emerging decentralized platform that aims
+      to distribute computational tasks across a vast, open network, spanning from your
+      personal machine to devices on your LAN and nodes at the edge of the Internet.</p>
+    <div class="roles">
+      <span class="wordmark"><span class="c">::</span> bgins <span class="c">::</span></span>
+      <span class="index-line"><span class="marker">▸</span><span class="title">Functions Everywhere, Only Once</span></span>
+      <span><a class="hover-link" href="#">a hovered link</a></span>
+    </div>
+  </div>
+
+  <div class="label">c — #b65535 · brick</div>
+  <div class="candidate c-c">
+    <p class="versal">The Everywhere Computer is an emerging decentralized platform that aims
+      to distribute computational tasks across a vast, open network, spanning from your
+      personal machine to devices on your LAN and nodes at the edge of the Internet.</p>
+    <div class="roles">
+      <span class="wordmark"><span class="c">::</span> bgins <span class="c">::</span></span>
+      <span class="index-line"><span class="marker">▸</span><span class="title">Functions Everywhere, Only Once</span></span>
+      <span><a class="hover-link" href="#">a hovered link</a></span>
+    </div>
+  </div>
+
+  <div class="label">d — #a84a2c · dark brick, near day strength</div>
+  <div class="candidate c-d">
+    <p class="versal">The Everywhere Computer is an emerging decentralized platform that aims
+      to distribute computational tasks across a vast, open network, spanning from your
+      personal machine to devices on your LAN and nodes at the edge of the Internet.</p>
+    <div class="roles">
+      <span class="wordmark"><span class="c">::</span> bgins <span class="c">::</span></span>
+      <span class="index-line"><span class="marker">▸</span><span class="title">Functions Everywhere, Only Once</span></span>
+      <span><a class="hover-link" href="#">a hovered link</a></span>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="label">reference — day vermilion #a83220 (decided)</div>
+    <div class="candidate">
+      <p class="versal">The Everywhere Computer is an emerging decentralized platform that aims
+        to distribute computational tasks across a vast, open network, spanning from your
+        personal machine to devices on your LAN and nodes at the edge of the Internet.</p>
+      <div class="roles">
+        <span class="wordmark"><span class="c">::</span> bgins <span class="c">::</span></span>
+        <span class="index-line"><span class="marker">▸</span><span class="title">Functions Everywhere, Only Once</span></span>
+        <span><a class="hover-link" href="#">a hovered link</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

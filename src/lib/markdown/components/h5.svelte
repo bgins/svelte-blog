@@ -11,9 +11,8 @@
     margin: 0;
     padding-top: 0;
 
-    font-family: 'Rosario', sans-serif;
-    font-variant: normal;
-    font-weight: bold;
-    font-size: 18px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 19px;
   }
 </style>

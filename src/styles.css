@@ -1,53 +1,67 @@
-@import url('/prism-theme.css');
-
-@font-face {
-  font-family: 'Cousine';
-  src: url('/fonts/cousine-regular-webfont.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/lato-regular-webfont.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/lato-bold-webfont.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/lato-italic-webfont.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Lato';
-  src: url('/fonts/lato-bolditalic-webfont.woff2') format('woff2');
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Rosario';
-  src: url('/fonts/rosario-variablefont_wght-webfont.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
+@import './lib/styles/tokens.css';
 
 body {
   margin: 0;
 
-  background-color: #ffffffff;
-  background-image: url('/light-wool.png');
-  background-repeat: repeat;
+  background-color: var(--bg);
+  color: var(--ink);
+
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+  font-feature-settings:
+    'ss01' on,
+    'ss02' on;
+}
+
+/* code blocks — Shiki with the Vitesse duals, inked on the raised plate.
+ * Tokens carry both palettes as CSS variables (defaultColor: false); the
+ * rules below pick the one matching the site theme. */
+pre.shiki {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  margin: 0;
+  overflow-x: auto;
+
+  background-color: var(--bg-raised);
+  box-shadow: inset 0 0 0 1px var(--hairline-strong);
+
+  font-size: 15px;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='day']) .shiki,
+  :root:not([data-theme='day']) .shiki span {
+    color: var(--shiki-dark);
+  }
+}
+
+:root[data-theme='night'] .shiki,
+:root[data-theme='night'] .shiki span {
+  color: var(--shiki-dark);
+}
+
+/* wraps each code block so the copy control can position against it
+ * (see actions/enhanceCode.js). width + min-width hold the wrapper to the
+ * column so the pre inside scrolls instead of the whole block overflowing */
+.code-block {
+  position: relative;
+  width: 100%;
+  min-width: 0;
 }
 
 ul > li::before {
@@ -55,5 +69,6 @@ ul > li::before {
   padding-right: 6px;
   transform: translateY(-1px);
 
-  content: '•';
+  content: '·';
+  color: var(--ink-faint);
 }

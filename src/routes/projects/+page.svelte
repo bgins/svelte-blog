@@ -1,9 +1,22 @@
 <script>
   import { page } from '$app/stores'
-  import LinkIcon from '$lib/components/icons/Link.svelte'
-  import PaperIcon from '$lib/components/icons/Paper.svelte'
+
+  const numerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']
 
   const projects = [
+    {
+      title:
+        'No completely asynchronous consensus protocol can tolerate even a single unannounced process death',
+      image: 'flp-present.png',
+      imageNarrow: 'flp-gate.png',
+      alt: 'Title card for the FLP presentation',
+      description:
+        'A visual walkthrough of Impossibility of Distributed Consensus with One Faulty Process',
+      links: {
+        external: 'https://bgins.github.io/flp-present/',
+        post: null
+      }
+    },
     {
       title: 'Coincident Spectra',
       image: 'coincident-spectra.png',
@@ -50,48 +63,53 @@
 </script>
 
 <svelte:head>
-  <title>Projects | Syntactic Overdrive</title>
+  <title>Projects | Brian Ginsburg</title>
   <meta name="description" content="My projects" />
   <meta property="og:title" content="Projects" />
-  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:url" content={`${import.meta.env.VITE_ORIGIN}${$page.url.pathname}`} />
   <meta property="og:description" content="My projects" />
+  <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:title" content="Projects" />
   <meta property="twitter:description" content="My projects" />
+  <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
 </svelte:head>
+
+{#snippet media(/** @type {(typeof projects)[number]} */ project)}
+  {#if project.imageNarrow}
+    <picture>
+      <source media="(max-width: 30rem)" srcset="/images/projects/{project.imageNarrow}" />
+      <img src="/images/projects/{project.image}" alt={project.alt} />
+    </picture>
+  {:else}
+    <img src="/images/projects/{project.image}" alt={project.alt} />
+  {/if}
+{/snippet}
 
 <div id="layout">
   <h1>Projects</h1>
   <div id="content">
-    {#each projects as project}
-      <div class="card">
-        <div class="card-header">
+    {#each projects as project, i (project.title)}
+      <article class="plate">
+        <figure class:has-narrow={project.imageNarrow}>
           {#if project.links.external}
-            <a href={project.links.external} target="_blank">
-              <img src="/images/projects/{project.image}" alt={project.alt} />
+            <a href={project.links.external} target="_blank" rel="noopener noreferrer">
+              {@render media(project)}
             </a>
           {:else}
-            <img src="/images/projects/{project.image}" alt={project.alt} />
+            {@render media(project)}
           {/if}
-        </div>
-        <div class="card-body">
-          <h3>{project.title}</h3>
-          <div>{project.description}</div>
-        </div>
-        <div class="card-footer">
+          <figcaption>Tab. {numerals[i]} · {project.title}</figcaption>
+        </figure>
+        <p>{project.description}</p>
+        <nav>
           {#if project.links.external}
-            <a href={project.links.external} target="_blank">
-              <LinkIcon />
-              <span>Play</span>
-            </a>
+            <a href={project.links.external} target="_blank" rel="noopener noreferrer">play »</a>
           {/if}
           {#if project.links.post}
-            <a href={project.links.post}>
-              <PaperIcon />
-              <span>Read More</span>
-            </a>
+            <a href={project.links.post}>read more</a>
           {/if}
-        </div>
-      </div>
+        </nav>
+      </article>
     {/each}
   </div>
 </div>
@@ -107,74 +125,78 @@
   #content {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 15px;
-    padding-top: 20px;
+    gap: 44px;
+    padding-top: 24px;
   }
 
-  .card {
-    display: grid;
-    grid-template-rows: 300px 1fr 40px;
+  h1 {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .plate {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
-    background-color: #ffffff;
-    border-radius: 1px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.35);
   }
 
-  .card-header img {
+  figure {
+    margin: 0;
+    padding: 10px;
+    box-shadow: inset 0 0 0 1px var(--hairline-strong);
+  }
+
+  figure img {
+    display: block;
     object-fit: cover;
     width: 100%;
     height: 300px;
   }
 
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
-    padding: 10px;
+  /* on a phone the FLP card swaps to its portrait title-card (see the picture
+     source above); show it whole at its own aspect instead of cropping it to
+     the landscape slot */
+  @media (max-width: 30rem) {
+    figure.has-narrow img {
+      height: auto;
+    }
   }
 
-  .card-footer {
+  figcaption {
+    padding-top: 8px;
+
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--w-muted);
+  }
+
+  .plate > p {
+    margin: 0;
+  }
+
+  .plate > nav {
     display: flex;
-    flex-direction: row;
     gap: 20px;
-    padding: 0 10px 5px 10px;
+
+    font-family: var(--font-mono);
+    font-feature-settings:
+      'ss01' on,
+      'ss02' on;
+    font-size: 13px;
+    letter-spacing: 0.08em;
   }
 
-  .card-footer > a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 3px;
-    color: #000000;
+  .plate > nav > a {
+    color: var(--ink-muted);
     text-decoration: none;
-    transition: color ease-out 0.03s;
   }
 
-  .card-footer > a:hover {
-    color: #6d1223;
-    transition: color ease-in 0.06s;
-  }
-
-  h1,
-  h3 {
-    font-family: 'Rosario', sans-serif;
-    font-variant: normal;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 36px;
-    letter-spacing: -0.5px;
-  }
-
-  h3 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: normal;
-    letter-spacing: -0.5px;
+  .plate > nav > a:hover {
+    color: var(--rubric);
   }
 </style>

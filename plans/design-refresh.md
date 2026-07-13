@@ -45,6 +45,69 @@ status: proposal, v3 · 2026-07-08
   sepia rule; vermilion (`--rubric`) is the site's one accent — versals, the seal, active marks,
   guillemets, link hover, the lit colons. Bivalent indigo leaves the site's palette entirely.
   Token sheet updated (§2); the night vermilion lift still wants tuning.
+- **2026-07-12 — body face and night vermilion decided.**
+  - **Literata is the body face.** Read on the real site against Alegreya and Vollkorn via a
+    temporary `?font=` switcher; Literata at 16.5px won for sustained reading. Alegreya leaves
+    the stack; EB Garamond keeps the display register (titles, versals).
+  - **Night `--rubric` is `#a84a2c`** — dark brick, near day strength (rubric swatch 03,
+    `plans/swatch/rubric-03.html`); the provisional `#cf7a68` read salmon on night ink.
+- **2026-07-12 — the style guide.** The draft `markdown-test` post is retitled **Style Guide**
+  (`/posts/markdown-test`, draft, excluded from index and feed) and holds one of every element
+  the renderer sets. House rule: when a new element lands (versal, ornament, code treatment),
+  it gets an example there in the same change.
+- **2026-07-12 — a second heritage mark recorded: the circuit trace.** Brian's longtime avatar
+  is a photograph of laser-cut wood engraved with circuit-board traces — parallel ruled runs,
+  via-circles crossed by a slash, the machine's network rendered in craft material. No vector
+  exists; the photos are the source. It pairs with Browne's reticulated Network as its machine
+  counterpart: one lattice grown, one etched. Candidate uses, not yet committed: an etched-trace
+  substrate for a future 404 or vault-adjacent surface, or a drawn ornament in the fine-line
+  register. Nothing ships in the device round; recorded so the language remembers it.
+
+- **2026-07-12 — Brian's review of the instruments, folded in.** The monogram device inks in
+  `--ink`, not vermilion (too loud); the OG card regenerated to match. The hero plate moved off
+  the home page (now blog-only) to the top of the **About** page. The colophon dropped its
+  `// colophon` head and the em-rule motto placeholder — quiet furniture now.
+- **2026-07-12 — the mark regains its grit; the device closes the page.** Brian's review: the
+  traced vector had lost the original's character, and flat color read as a sticker in any hue.
+  Mark swatch 05 (`plans/swatch/mark-05.html`) audited four materials × three inks on both
+  grounds. Decided: **the true raster** — the original mark's alpha (soft edges intact),
+  extracted to `static/monogram-grit.png` and tinted through a mask — **in the sepia register**
+  (`--w-ink` at hero scale, `--w-muted` in the colophon). Material first, hue second: with grit
+  restored, sepia reads as an aged plate. The **colophon reordered to the printer's order** —
+  controls in one row (feed · source · theme), the set line, and the seal *last*, closing the
+  page as a signature; position now carries the identity, ending the weight-tuning cycle. Brand
+  assets (og, apple-touch, manifest icons) regenerated in sepia grit; `favicon.svg` stays the
+  traced vector, which remains correct at tiny sizes where grit is noise.
+- **2026-07-12 — the instruments built (§9).** A theme switch (sun/moon glyph, three detents,
+  in the colophon); the device flip (the seal turns to a scannable QR contact plate, verified to
+  decode `https://github.com/bgins`, plate fixed-light both grounds); a copy control on code
+  blocks (glyph → check, strike-ring pulse); j/k keyboard stepping of the index (latched). A small
+  icon registry (`icons.js` + `Icon.svelte`) was added in the house pattern; `uqr` added as a
+  dependency for the QR. The manicule was prototyped and declined (see §6). Reduced-motion cuts
+  the flip and the pulse. All on `foundation-tokens`.
+
+- **2026-07-12 — the closing rounds.**
+  - **New-tab scoping corrected:** only off-site links open a new tab; same-site navigation stays
+    in-tab (restores client-side routing). The markdown link component decides by scheme.
+  - **The motto placed:** *sublimare*, faint Literata italic, floating just above the footer
+    divider on About only (opt-in frontmatter). The seal-legend and tailpiece-plate options were
+    swatched (`plans/swatch/motto-06.html`) and passed over.
+  - **Content refresh:** hero tagline is "Software engineer developing identity, authority, and
+    mesh."; About prose reads nine years / "web, infra, and decentralized systems"; About meta
+    matches the tagline.
+  - **"Syntactic Overdrive" retired for "Brian Ginsburg"** across titles, og:site_name,
+    application-name, RSS feed name, and the web manifest. The wordmark stays `:: bgins ::`.
+    Social description: "Building identity, authority, and mesh." The OG card redrawn (seal +
+    wordmark + tagline, no site name). `og:url` fixed to the real domain (was a prerender
+    placeholder host).
+  - **Favicon reverted to the original `favicon.png`** (cream roundel reads at tab size in any
+    theme); the SVG favicon showed a bare white glyph on dark tab bars. The traced vector module
+    (`monogram.js`) retired with it — the grit-mask impression is the only mark in product code.
+  - **FLP presentation added as the first project** (`bgins.github.io/flp-present`), carded with
+    its own social preview; titled "A visual walkthrough of Impossibility of Distributed
+    Consensus with One Faulty Process."
+  - **Fix:** code blocks were escaping the column without a scrollbar — the copy-control wrapper
+    was an unconstrained flex item; it is now held to the column width.
 
 Sources of truth consulted:
 
@@ -174,7 +237,7 @@ bump its px to match x-height — the swatch decides, per house practice):
 
 | element | face | spec |
 |---|---|---|
-| body | book | 17–18px / 1.65, `--ink` |
+| body | book (Literata) | 16.5px / 1.65, `--ink` |
 | measure | — | `max-width: 38rem` (~66ch — down from today's 800px) |
 | post title (h1) | book (or display cut) | 32–34px / 500, normal case |
 | h2 | book small caps | 19px, `letter-spacing: 0.06em` |
@@ -212,14 +275,13 @@ The v1 terminal grammar survives, but zoned to the machine's voice:
 - **Header:** one quiet row, hairline rule beneath. `:: bgins ::` left; nav right (`blog ·
   projects · about`, Geist Mono lowercase) with the active section marked — `▸` for now, manicule
   candidate in §6. No 4px bar, no sticky, no hamburger.
-- **Footer (new — the site currently just ends):** a **colophon** in the emblem-book's three-part
-  grammar. Pictura: the monogram device, small. Motto: direction chosen, finalist pending (see
-  below) — an em-rule `———` holds the line until it is engraved (mottos are "engraved on static
-  plates, not performed"; no rush). Subscriptio: the colophon proper — `// colophon` head (the
-  machine's one heading), links `feed · source · pgp` in mono, and a line in the atlas voice:
-  *set in ‹book face› & Geist Mono · Svelte · S3*. The Dürer two-hands rule licenses the
-  marginalia hand "only for a coda" — the colophon is the coda, so the calligraphic monogram
-  lives here by law, not exception.
+- **Footer (new — the site currently just ends):** a **colophon**. As built (simplified per
+  Brian 2026-07-12): the monogram seal, the links `feed · source` in mono, the theme switch, and
+  a line in the atlas voice — *set in Literata & Geist Mono · Svelte · S3*. The `// colophon`
+  head and the em-rule motto placeholder were dropped; the colophon is quiet furniture, not a
+  labelled plate. The Dürer two-hands rule licenses the marginalia hand "only for a coda" — the
+  colophon is the coda, so the calligraphic monogram lives here by law. (If a motto is chosen, its
+  placement is open — it no longer has a reserved line here.)
 
 **The motto — the *sublimare* family (direction chosen 2026-07-08).** First conjugation:
 *sublimo, sublimare, sublimavi, sublimatum* — "to raise on high, to elevate"; in the alchemists'
@@ -237,6 +299,13 @@ alchemy on the paper side, state-change on the cypherpunk side. Shortlist for th
 
 Hold *solve et sublima* and *sublimate* as finalists; live with both before engraving.
 
+**Decided 2026-07-12: *sublimare*, the bare infinitive.** Not an imperative or a full phrase but
+the naked verb — "to raise on high, to sublime" — the act itself, unconjugated. Placement: not
+the seal legend (swatch 06 audited that and the tailpiece plate) but a **faint italic line
+floating at the foot of the About page**, above the footer divider, in the faint sepia. Brian's
+call: downplayed, floated, not performed. The page layout carries it as opt-in frontmatter, set
+only on About.
+
 ## 5. the device — the monogram becomes the site's printer's mark
 
 Each surface in the family carries its own device: next has the b2 core and the volvelle, flp has
@@ -246,12 +315,15 @@ Dürer's own AD mark):
 
 - **Redraw as SVG**, currentColor, inscribed in a faint construction circle with the mother-circle
   and centerlines left visible and four compass pricks at the cardinals — the marginalia-hand
-  glyph mounted by the geometer hand. Inked in `--rubric` — the seal printed in red, as
-  printers' devices traditionally were.
-- **Home page hero plate:** the device sits in a clearing on **Browne's reticulated Network** —
-  the exact flp scene-1 / next emblem substrate (rhombic quincunx lattice, `--w-faint` lines,
-  stroke 0.6, low opacity, masked clearing under the plate). Emblem grammar: pictura (the device),
-  motto (the wordmark), subscriptio (the one-line bio).
+  glyph mounted by the geometer hand. Inked in `--ink` (decided 2026-07-12 — vermilion read too
+  loud for the mark; the ink ties it to the `bgins` wordmark and lets the interlace carry itself).
+  The lit colons, versals, and marks keep the rubric; the device does not.
+- **The hero plate** (on the **About** page — moved there 2026-07-12; the home page is blog-only).
+  The device sits in a clearing on **Browne's reticulated Network** — the exact flp scene-1 / next
+  emblem substrate (rhombic quincunx lattice, `--w-faint` lines, stroke 0.6, low opacity, masked
+  clearing under the plate). Emblem grammar: pictura (the device), motto (the wordmark),
+  subscriptio (the one-line bio). It leads the About page above the prose; the contact flip is
+  doubly apt there.
 - **The flip — the site's one mechanical ceremony.** Tap/click the device and the plate flips
   (0.7s, `cubic-bezier(0.4, 0.1, 0.2, 1)`, backface hidden — the next Emblem card verbatim) to its
   **contact plate**: a QR inked as a construction plate (square inscribed in the circle, compass
@@ -282,25 +354,28 @@ pricked, figures are inscribed in one another, and measure is marked with ticks"
   (dice-five, pricked sepia dots) or the device in miniature. The reader knows the text is done.
 - **`<hr>` becomes the quincunx** mid-text: five pricked dots in Browne's planting pattern instead
   of a rule.
-- **Blockquotes:** book-face italic, flanked by guillemets `» «` in `--rubric` at 0.55 opacity, hanging
+- **Blockquotes:** book-face italic, opened by a single guillemet `»` in `--rubric` at 0.55
+  opacity (the closing mark was dropped 2026-07-12 — it hung at the far margin), hanging
   cite in small caps — the flp essay-quote register translated into the book face.
 - **Plate frames for images.** Post heroes and project screenshots sit inside a hairline frame
   with compass-prick crosses at the corners — the registration-mark motif. Captions in the atlas
   voice: *fig. — alt text*, book-face italic, `--w-muted`. Existing `imageAlt` / `imageAttribution`
   frontmatter feeds this directly.
-- **The manicule ☞ — candidate active marker.** The Renaissance reader's pointing hand, redrawn as
-  a fine-line 20×20 compass-arc glyph per the next-icons spec, marking the active nav item and
-  hovered index row. Risk: "silhouette survives 14px, detail doesn't" — if the hand muds at 13px,
-  fall back to `▸` and let the manicule serve larger (e.g., pull-quotes, the 404). Approved
-  2026-07-08 — prototype in the icon harness (the next-icons draw→render→screenshot loop) before
-  committing.
+- **The manicule ☞ — tried as the active marker, kept `▸` (decided 2026-07-12).** Prototyped in
+  `plans/swatch/manicule-04.html`: the Unicode ☞ and two custom draws (a filled silhouette and a
+  fine-line outline) against `▸` at 13/16/19/28px on both grounds and in context. The verdict was
+  the anticipated one — "silhouette survives 14px, detail doesn't." A hand only reads as a hand at
+  ~28px; at the 13px marker size every manicule collapses to a rubric blob that reads as noise or
+  a bullet, while `▸` stays crisp and says "this one." So `▸` holds the marker. The manicule is
+  reserved for a large-format flourish if a surface ever wants one (a pull-quote lead, a 404) — not
+  built yet, no surface needs it.
 - **List bullets:** the custom `•` becomes a `·` in `--ink-faint`.
 - **The Network appears at most twice** sitewide (home hero, optionally the 404). Substrate, not
   wallpaper.
 
 ## 7. pages
 
-- **Home / blog index.** The hero plate (§5) above; posts grouped by year beneath, year heads in
+- **Home / blog index.** Blog only (the hero plate lives on About, §5); posts grouped by year, year heads in
   book-face small caps. Rows full-bleed and hairline-separated: title in the book face at
   19–20px, date right-set in the mono meta register. Hover: the active marker (▸ or manicule) appears in
   `--rubric` — replacing the 4px maroon border.
@@ -312,7 +387,8 @@ pricked, figures are inscribed in one another, and measure is marked with ticks"
 - **Projects — specimen plates.** Each project a plate in the atlas: screenshot in a
   compass-pricked hairline frame, caption *Tab. I · everywhere computer* numbered in sequence,
   description in the book face, actions quiet and mono: `play »` · `read more`. No cards, no shadows.
-- **About — the long colophon.** Keep the prose; set it in the book register; end on the device.
+- **About.** Leads with the hero plate (§5), then the "About" heading and the prose in the book
+  register. The site's identity page.
 
 ## 8. code blocks — Vitesse on paper
 
@@ -373,33 +449,87 @@ reader operates, never to ornament.
 
 ## 12. phases
 
-1. **Phase 0 — housekeeping.** §10 fixes + Svelte 5 migration. Shippable alone, no visual change.
+1. **Phase 0 — housekeeping.** §10 fixes + Svelte 5 migration. Shippable alone, no visual
+   change. **DONE — merged and live on brianginsburg.com.**
 2. **Phase 1 — foundation.** Body-face swatch (§2) then token sheet, the chosen book face +
    Geist Mono, grain overlay, theme plumbing, base type scale. Wool, Rosario/Lato/Cousine, and
-   the maroons retire. The site already reads as family after this phase.
+   the maroons retire. **DONE — on `foundation-tokens`, unmerged.**
 3. **Phase 2 — the book.** Header + colophon, index rows + year heads, markdown components
    (blockquote, headings, links, hr-quincunx, bullets, plate frames + captions), post/page
-   layouts, versals + tailpieces, projects-as-plates, Shiki Vitesse.
-4. **Phase 3 — the device.** Monogram redrawn as SVG; hero plate on the Network; favicon /
-   apple-touch / OG regenerated.
+   layouts, versals + tailpieces, projects-as-plates, Shiki Vitesse. **DONE — on
+   `foundation-tokens`, unmerged.**
+4. **Phase 3 — the device.** Monogram traced to vector; hero plate on the Network; colophon
+   seal; favicon / apple-touch / webmanifest / OG card. **DONE — on `foundation-tokens`,
+   unmerged.**
 5. **Phase 4 — instruments.** The flip-to-contact-plate, the sun/moon theme switch, copy
-   strike-ring, keyboard detents, manicule prototype. Reduced-motion cuts throughout.
+   strike-ring, keyboard detents, manicule prototype. Reduced-motion cuts throughout. **DONE —
+   on `foundation-tokens`, unmerged. Manicule prototyped and declined; `▸` holds the marker.**
 
 Each phase leaves the site deployable; the existing Playwright checks extend per phase (theme
 attribute present, index prerendered, feed URLs normalized).
 
 ## 13. open questions
 
-(The first round is answered in the decisions log; what remains is swatch outcomes, not
-directions.)
+(Earlier rounds are answered in the decisions log; the type and color foundations are now fully
+decided — Literata body, EB Garamond display, Geist Mono machine voice, vermilion `#a83220` day /
+`#a84a2c` night.)
 
-1. **Body face:** swatch 01 is on the bench (`plans/swatch/type-01.html`) — Alegreya body +
-   EB Garamond display, with an Alegreya-display control. Judge per the §2 protocol (phone
-   ~35cm + laptop, day and night); Literata remains the understudy if Alegreya disappoints.
-   Then decide whether EB Garamond keeps the display register or Alegreya takes everything.
-2. **The night vermilion lift.** Decided: treatment c, vermilion the only accent (see decisions
-   log). What remains is a hue tune: `#cf7a68` drifts salmon on `#121212` — swatch a darker,
-   earthier lift (brick-leaning candidates) on device before the token locks.
-3. **Motto finalist:** *solve et sublima* vs. *sublimate* (§4) — live with both before engraving;
-   the em-rule holds the line.
-4. **Manicule at 13px:** outcome of the icon-harness prototype — commit, or fall back to `▸`.
+1. **Vitesse-light softness:** Brian's verdict pending — if code reads too soft by day, deepen
+   the palest hues with Shiki `colorReplacements` in `svelte.config.js`.
+2. **Phone evaluation** of Literata and the night brick, once deployed.
+
+## 14. state of the work — handoff
+
+The decisions log above is the authority on choices.
+
+**Branch.** `foundation-tokens`, unpushed and unmerged, ~35 commits on top of main. Main carries
+only the housekeeping release (Svelte 5, prerendered index, CI fixes), which is live at
+brianginsburg.com — none of the visual refresh is deployed yet. Every commit was verified before
+landing: production build, svelte-check, prettier + eslint, the Playwright suite, and browser
+checks on both grounds.
+
+**Everything is built and every design question is answered.** All four phases (§12), the
+post-review revisions (the gritted sepia mark, the printer's-order colophon), the motto, the
+content refresh, and the social identity (Brian Ginsburg / new OG card / original favicon) are
+done on the branch. Nothing is half-built. What remains:
+
+- **Merge and deploy.** The branch merges to main as one turn; Brian pushes. The site turns on
+  the next publish. Social scrapers cache OG data — an already-shared link may need a re-scrape
+  via the platform's validator.
+- **Post-deploy verdicts** — vitesse-light softness by day, Literata and the night brick on the
+  phone. Each has a documented remedy (§13).
+
+**Working conventions — follow these.**
+
+- Clean history: commit messages and titles never reference phases or plan sections; temporary
+  markers in code are swept before work is declared done. Conventional Commits. Brian pushes.
+- Always `cd` explicitly before git commands; the shell working directory resets between turns
+  and this repo is not the default directory.
+- The style guide (`/posts/markdown-test`, draft) holds one of every element the site sets; a
+  new element gets its example there in the same change.
+- Decisions are made by swatch: build a self-contained harness under `plans/swatch/`, judge on
+  device, on both grounds. Verdicts go in the decisions log.
+- Builds need `VITE_ORIGIN=https://brianginsburg.com` (no .env in this checkout). The full check
+  is: build, `npm run check`, `npm run lint`, `npx playwright test`, then look at the pages in a
+  real browser, day and night.
+- Prettier exempts `src/routes/posts` and `plans`; never let it reformat published content.
+
+**Repo landmarks.** Tokens: `src/lib/styles/tokens.css`. The mark ships as the gritted raster
+impression: `static/monogram-grit.png`, tinted via mask in `Device.svelte` and the hero (SVG
+alpha mask). Trace + grit provenance: `plans/trace-monogram.mjs` (the traced vector module was
+retired). Components: `Device`, `Hero` (holds the flip + QR + tagline), `Colophon` (theme
+switch, seal-last order), `Grain`, `Quincunx`, `Header`, `ThemeToggle`, `CopyButton`, `Icon`.
+The icon registry: `src/lib/icons.js`. The code-copy enhancer: `src/lib/actions/enhanceCode.js`
+(its `.code-block` wrapper must stay width-constrained — see the closing-rounds log entry).
+Markdown components under `src/lib/markdown/` (page layout carries opt-in `hero` and `motto`
+frontmatter). Shiki highlighter in `svelte.config.js`. Theme pre-paint script in `src/app.html`.
+Swatches under `plans/swatch/` (type-01, accent-02, rubric-03, manicule-04, mark-05, motto-06).
+
+**Heritage sources.** The mark's source of record is `static/favicon.png` (also the favicon);
+the grit mask was extracted from it. Original raster copies exist with Brian if higher fidelity
+is ever needed. The circuit-trace avatar (see decisions log) is recorded but unused.
+
+**Tooling note.** The Chrome DevTools MCP browser is a separate Chrome instance with its own
+profile; test-session theme overrides (`localStorage['theme']`) live there, not in Brian's
+browser. Kill stale instances with `pkill -f chrome-devtools-mcp` when it refuses new pages, and
+don't mistake its window for Brian's when he reports what he sees.

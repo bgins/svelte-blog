@@ -1,0 +1,86 @@
+/* Design tokens. Day is cream paper, night is warm cream ink on neutral
+ * near-black. Themes resolve from prefers-color-scheme by default, with a
+ * data-theme override on <html> applied before first paint (see app.html).
+ *
+ * Vermilion is the site's one accent hue: versals, the seal, active marks,
+ * and link hover. Links themselves wear the text ink under a fine ruled
+ * underline. Warm sepia is construction furniture, never text.
+ */
+
+:root {
+  color-scheme: light;
+
+  --bg: #f6f3e9;
+  --bg-raised: #fefdf8;
+  --ink: #181818;
+  --ink-muted: #5a5550;
+  --ink-faint: #a8a39c;
+  --rubric: #a83220;
+  --rule-under: rgba(107, 90, 62, 0.55);
+  --w-ink: #382611;
+  --w-muted: #6b5a3e;
+  --w-faint: #ada082;
+  --hairline: rgba(24, 24, 24, 0.08);
+  --hairline-strong: rgba(24, 24, 24, 0.12);
+  --grain-opacity: 0.06;
+
+  --font-body: 'Literata Variable', Georgia, serif;
+  --font-display: 'EB Garamond Variable', Georgia, serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bg: #121212;
+    --bg-raised: #181818;
+    --ink: #dbd7ca;
+    --ink-muted: #a49e91;
+    --ink-faint: #78736a;
+    --rubric: #a84a2c; /* dark brick, the night lift of the day vermilion */
+    --rule-under: rgba(154, 139, 110, 0.55);
+    --w-ink: #c9b899;
+    --w-muted: #9a8b6e;
+    --w-faint: #6f6654;
+    --hairline: rgba(219, 215, 202, 0.1);
+    --hairline-strong: rgba(219, 215, 202, 0.16);
+    --grain-opacity: 0.05;
+  }
+}
+
+:root[data-theme='day'] {
+  color-scheme: light;
+
+  --bg: #f6f3e9;
+  --bg-raised: #fefdf8;
+  --ink: #181818;
+  --ink-muted: #5a5550;
+  --ink-faint: #a8a39c;
+  --rubric: #a83220;
+  --rule-under: rgba(107, 90, 62, 0.55);
+  --w-ink: #382611;
+  --w-muted: #6b5a3e;
+  --w-faint: #ada082;
+  --hairline: rgba(24, 24, 24, 0.08);
+  --hairline-strong: rgba(24, 24, 24, 0.12);
+  --grain-opacity: 0.06;
+}
+
+:root[data-theme='night'] {
+  color-scheme: dark;
+
+  --bg: #121212;
+  --bg-raised: #181818;
+  --ink: #dbd7ca;
+  --ink-muted: #a49e91;
+  --ink-faint: #78736a;
+  --rubric: #a84a2c; /* dark brick, the night lift of the day vermilion */
+  --rule-under: rgba(154, 139, 110, 0.55);
+  --w-ink: #c9b899;
+  --w-muted: #9a8b6e;
+  --w-faint: #6f6654;
+  --hairline: rgba(219, 215, 202, 0.1);
+  --hairline-strong: rgba(219, 215, 202, 0.16);
+  --grain-opacity: 0.05;
+}

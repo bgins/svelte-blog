@@ -8,6 +8,7 @@
     h4,
     h5,
     h6,
+    hr,
     img,
     li,
     ol,
@@ -18,35 +19,46 @@
 
 <script>
   import { page } from '$app/stores'
+  import Hero from '$lib/components/Hero.svelte'
+  import Motto from '$lib/components/Motto.svelte'
 
-  /** @type {{ title: string, description: string, children?: import('svelte').Snippet }} */
-  let { title, description, children } = $props()
+  /** @type {{ title: string, description: string, hero?: boolean, motto?: boolean, children?: import('svelte').Snippet }} */
+  let { title, description, hero = false, motto = false, children } = $props()
 </script>
 
 <svelte:head>
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta property="og:title" content={title} />
-  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:url" content={`${import.meta.env.VITE_ORIGIN}${$page.url.pathname}`} />
   <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
 </svelte:head>
 
-<div id="layout">
-  <h1>{title}</h1>
+<div id="layout" class:has-motto={motto}>
+  {#if hero}
+    <Hero />
+  {/if}
+  <h1 class:below-hero={hero}>{title}</h1>
 
   <div id="content">
     {@render children?.()}
   </div>
+
+  {#if motto}
+    <Motto />
+  {/if}
 </div>
 
 <style>
   #layout {
     box-sizing: border-box;
     width: 100%;
-    max-width: 800px;
+    max-width: calc(38rem + 60px);
     padding: 40px 30px;
   }
 
@@ -63,11 +75,20 @@
     margin: 0;
     padding-bottom: 16px;
 
-    font-family: 'Rosario', sans-serif;
-    font-variant: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 36px;
-    letter-spacing: -0.5px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  #layout > h1.below-hero {
+    padding-top: 26px;
+  }
+
+  /* fill the viewport so the motto can float to the foot (see Motto.svelte) */
+  #layout.has-motto {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
   }
 </style>

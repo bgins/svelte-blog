@@ -1,9 +1,7 @@
 export function formatDate(dateString: string): string {
   const date: Date = new Date(Date.parse(dateString))
-  const formatOptions: Intl.DateTimeFormatOptions = {
-    dateStyle: 'long'
-  }
+  const pad = (n: number) => String(n).padStart(2, '0')
 
-  // A fixed locale keeps prerendered and hydrated output identical
-  return new Intl.DateTimeFormat('en-US', formatOptions).format(date)
+  // UTC keeps prerendered output identical regardless of build machine
+  return `${date.getUTCFullYear()} · ${pad(date.getUTCMonth() + 1)} · ${pad(date.getUTCDate())}`
 }
