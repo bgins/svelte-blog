@@ -50,10 +50,10 @@
 </script>
 
 <svelte:head>
-  <title>Projects | Syntactic Overdrive</title>
+  <title>Projects | Brian Ginsburg</title>
   <meta name="description" content="My projects" />
   <meta property="og:title" content="Projects" />
-  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:url" content={`${import.meta.env.VITE_ORIGIN}${$page.url.pathname}`} />
   <meta property="og:description" content="My projects" />
   <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:title" content="Projects" />

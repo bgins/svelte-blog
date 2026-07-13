@@ -19,7 +19,7 @@
   <link
     rel="alternate"
     type="application/rss+xml"
-    title="Syntactic Overdrive Feed"
+    title="Brian Ginsburg Feed"
     href={`${import.meta.env.VITE_ORIGIN}/feed.xml`}
   />
 </svelte:head>

@@ -44,16 +44,16 @@
 <svelte:window {onkeydown} />
 
 <svelte:head>
-  <title>Syntactic Overdrive</title>
-  <meta name="description" content="A blog about programming and music" />
-  <meta property="og:title" content="Syntactic Overdrive" />
-  <meta property="og:url" content={$page.url.href} />
-  <meta property="og:description" content="A blog about programming and music" />
+  <title>Brian Ginsburg</title>
+  <meta name="description" content="Building identity, authority, and mesh." />
+  <meta property="og:title" content="Brian Ginsburg" />
+  <meta property="og:url" content={`${import.meta.env.VITE_ORIGIN}${$page.url.pathname}`} />
+  <meta property="og:description" content="Building identity, authority, and mesh." />
   <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
-  <meta property="twitter:title" content="Syntactic Overdrive" />
-  <meta property="twitter:description" content="A blog about programming and music" />
+  <meta property="twitter:title" content="Brian Ginsburg" />
+  <meta property="twitter:description" content="Building identity, authority, and mesh." />
 </svelte:head>
 
 <div id="layout">

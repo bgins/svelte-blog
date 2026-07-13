@@ -45,7 +45,7 @@
   <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}${image}`} />
   <meta property="og:image:secure_url" content={`${import.meta.env.VITE_ORIGIN}${image}`} />
   <meta property="og:image:alt" content={imageAlt} />
-  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:url" content={`${import.meta.env.VITE_ORIGIN}${$page.url.pathname}`} />
   <meta property="og:description" content={description} />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content={title} />

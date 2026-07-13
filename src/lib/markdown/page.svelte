@@ -29,7 +29,7 @@
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta property="og:title" content={title} />
-  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:url" content={`${import.meta.env.VITE_ORIGIN}${$page.url.pathname}`} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={`${import.meta.env.VITE_ORIGIN}/images/og.png`} />
   <meta property="twitter:card" content="summary_large_image" />
