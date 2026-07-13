@@ -6,11 +6,11 @@
   const projects = [
     {
       title:
-        'A visual walkthrough of Impossibility of Distributed Consensus with One Faulty Process',
+        'No completely asynchronous consensus protocol can tolerate even a single unannounced process death',
       image: 'flp-present.png',
       alt: 'Title card for the FLP presentation',
       description:
-        'A visual walkthrough of the 1985 FLP proof that no asynchronous protocol can tolerate even a single unannounced process death.',
+        'A visual walkthrough of Impossibility of Distributed Consensus with One Faulty Process',
       links: {
         external: 'https://bgins.github.io/flp-present/',
         post: null
