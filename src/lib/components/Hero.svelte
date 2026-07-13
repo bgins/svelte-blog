@@ -155,7 +155,7 @@
     {#if flipped}
       <a href={CONTACT} target="_blank" rel="noopener noreferrer">github.com/bgins</a>
     {:else}
-      Software engineer developing web and decentralized systems
+      Software engineer developing identity, authority, and mesh.
     {/if}
   </div>
 </div>
