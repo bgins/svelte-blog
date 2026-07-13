@@ -5,7 +5,8 @@
 
   const projects = [
     {
-      title: 'FLP',
+      title:
+        'A visual walkthrough of Impossibility of Distributed Consensus with One Faulty Process',
       image: 'flp-present.png',
       alt: 'Title card for the FLP presentation',
       description:
