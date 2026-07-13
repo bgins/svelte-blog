@@ -63,6 +63,10 @@ status: proposal, v3 · 2026-07-08
   substrate for a future 404 or vault-adjacent surface, or a drawn ornament in the fine-line
   register. Nothing ships in the device round; recorded so the language remembers it.
 
+- **2026-07-12 — Brian's review of the instruments, folded in.** The monogram device inks in
+  `--ink`, not vermilion (too loud); the OG card regenerated to match. The hero plate moved off
+  the home page (now blog-only) to the top of the **About** page. The colophon dropped its
+  `// colophon` head and the em-rule motto placeholder — quiet furniture now.
 - **2026-07-12 — the instruments built (§9).** A theme switch (sun/moon glyph, three detents,
   in the colophon); the device flip (the seal turns to a scannable QR contact plate, verified to
   decode `https://github.com/bgins`, plate fixed-light both grounds); a copy control on code
@@ -237,14 +241,13 @@ The v1 terminal grammar survives, but zoned to the machine's voice:
 - **Header:** one quiet row, hairline rule beneath. `:: bgins ::` left; nav right (`blog ·
   projects · about`, Geist Mono lowercase) with the active section marked — `▸` for now, manicule
   candidate in §6. No 4px bar, no sticky, no hamburger.
-- **Footer (new — the site currently just ends):** a **colophon** in the emblem-book's three-part
-  grammar. Pictura: the monogram device, small. Motto: direction chosen, finalist pending (see
-  below) — an em-rule `———` holds the line until it is engraved (mottos are "engraved on static
-  plates, not performed"; no rush). Subscriptio: the colophon proper — `// colophon` head (the
-  machine's one heading), links `feed · source · pgp` in mono, and a line in the atlas voice:
-  *set in ‹book face› & Geist Mono · Svelte · S3*. The Dürer two-hands rule licenses the
-  marginalia hand "only for a coda" — the colophon is the coda, so the calligraphic monogram
-  lives here by law, not exception.
+- **Footer (new — the site currently just ends):** a **colophon**. As built (simplified per
+  Brian 2026-07-12): the monogram seal, the links `feed · source` in mono, the theme switch, and
+  a line in the atlas voice — *set in Literata & Geist Mono · Svelte · S3*. The `// colophon`
+  head and the em-rule motto placeholder were dropped; the colophon is quiet furniture, not a
+  labelled plate. The Dürer two-hands rule licenses the marginalia hand "only for a coda" — the
+  colophon is the coda, so the calligraphic monogram lives here by law. (If a motto is chosen, its
+  placement is open — it no longer has a reserved line here.)
 
 **The motto — the *sublimare* family (direction chosen 2026-07-08).** First conjugation:
 *sublimo, sublimare, sublimavi, sublimatum* — "to raise on high, to elevate"; in the alchemists'
@@ -271,12 +274,15 @@ Dürer's own AD mark):
 
 - **Redraw as SVG**, currentColor, inscribed in a faint construction circle with the mother-circle
   and centerlines left visible and four compass pricks at the cardinals — the marginalia-hand
-  glyph mounted by the geometer hand. Inked in `--rubric` — the seal printed in red, as
-  printers' devices traditionally were.
-- **Home page hero plate:** the device sits in a clearing on **Browne's reticulated Network** —
-  the exact flp scene-1 / next emblem substrate (rhombic quincunx lattice, `--w-faint` lines,
-  stroke 0.6, low opacity, masked clearing under the plate). Emblem grammar: pictura (the device),
-  motto (the wordmark), subscriptio (the one-line bio).
+  glyph mounted by the geometer hand. Inked in `--ink` (decided 2026-07-12 — vermilion read too
+  loud for the mark; the ink ties it to the `bgins` wordmark and lets the interlace carry itself).
+  The lit colons, versals, and marks keep the rubric; the device does not.
+- **The hero plate** (on the **About** page — moved there 2026-07-12; the home page is blog-only).
+  The device sits in a clearing on **Browne's reticulated Network** — the exact flp scene-1 / next
+  emblem substrate (rhombic quincunx lattice, `--w-faint` lines, stroke 0.6, low opacity, masked
+  clearing under the plate). Emblem grammar: pictura (the device), motto (the wordmark),
+  subscriptio (the one-line bio). It leads the About page above the prose; the contact flip is
+  doubly apt there.
 - **The flip — the site's one mechanical ceremony.** Tap/click the device and the plate flips
   (0.7s, `cubic-bezier(0.4, 0.1, 0.2, 1)`, backface hidden — the next Emblem card verbatim) to its
   **contact plate**: a QR inked as a construction plate (square inscribed in the circle, compass
@@ -328,7 +334,7 @@ pricked, figures are inscribed in one another, and measure is marked with ticks"
 
 ## 7. pages
 
-- **Home / blog index.** The hero plate (§5) above; posts grouped by year beneath, year heads in
+- **Home / blog index.** Blog only (the hero plate lives on About, §5); posts grouped by year, year heads in
   book-face small caps. Rows full-bleed and hairline-separated: title in the book face at
   19–20px, date right-set in the mono meta register. Hover: the active marker (▸ or manicule) appears in
   `--rubric` — replacing the 4px maroon border.
@@ -340,7 +346,8 @@ pricked, figures are inscribed in one another, and measure is marked with ticks"
 - **Projects — specimen plates.** Each project a plate in the atlas: screenshot in a
   compass-pricked hairline frame, caption *Tab. I · everywhere computer* numbered in sequence,
   description in the book face, actions quiet and mono: `play »` · `read more`. No cards, no shadows.
-- **About — the long colophon.** Keep the prose; set it in the book register; end on the device.
+- **About.** Leads with the hero plate (§5), then the "About" heading and the prose in the book
+  register. The site's identity page.
 
 ## 8. code blocks — Vitesse on paper
 
