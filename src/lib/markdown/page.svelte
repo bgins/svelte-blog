@@ -20,9 +20,10 @@
 <script>
   import { page } from '$app/stores'
   import Hero from '$lib/components/Hero.svelte'
+  import Motto from '$lib/components/Motto.svelte'
 
-  /** @type {{ title: string, description: string, hero?: boolean, motto?: string, children?: import('svelte').Snippet }} */
-  let { title, description, hero = false, motto = '', children } = $props()
+  /** @type {{ title: string, description: string, hero?: boolean, motto?: boolean, children?: import('svelte').Snippet }} */
+  let { title, description, hero = false, motto = false, children } = $props()
 </script>
 
 <svelte:head>
@@ -49,7 +50,7 @@
   </div>
 
   {#if motto}
-    <p class="motto">{motto}</p>
+    <Motto />
   {/if}
 </div>
 
@@ -84,24 +85,10 @@
     padding-top: 26px;
   }
 
-  /* a faint motto that hugs just above the footer divider at any window
-   * height: the page becomes a flex column filling the viewport, and the
-   * motto is pushed to its foot with margin-top auto, then pulled the last
-   * few pixels into the footer's top gap */
+  /* fill the viewport so the motto can float to the foot (see Motto.svelte) */
   #layout.has-motto {
     display: flex;
     flex-direction: column;
     padding-bottom: 0;
-  }
-
-  .motto {
-    margin: auto 0 -40px;
-    text-align: center;
-
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 16px;
-    letter-spacing: 0.03em;
-    color: var(--w-faint);
   }
 </style>

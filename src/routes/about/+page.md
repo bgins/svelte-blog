@@ -3,7 +3,7 @@ layout: page
 title: About
 description: Software engineer developing identity, authority, and mesh.
 hero: true
-motto: sublimare
+motto: true
 ---
 
 I am a software engineer with nine years experience implementing web, infra, and decentralized systems.
