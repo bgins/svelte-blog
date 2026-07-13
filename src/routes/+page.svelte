@@ -63,7 +63,14 @@
       {#if i === 0 || flat[i - 1].year !== post.year}
         <h2 class="year">{post.year}</h2>
       {/if}
-      <a class="row" class:on={i === cursor} href={post.slug} bind:this={rows[i]}>
+      <a
+        class="row"
+        class:on={i === cursor}
+        href={post.slug}
+        target="_blank"
+        rel="noopener noreferrer"
+        bind:this={rows[i]}
+      >
         <span class="marker" aria-hidden="true">▸</span>
         <span class="title">{post.title}</span>
         <span class="date">{formatDate(post.published)}</span>

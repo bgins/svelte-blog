@@ -19,14 +19,20 @@
 
 <header>
   <div id="content">
-    <a id="brand" href="/">
+    <a id="brand" href="/" target="_blank" rel="noopener noreferrer">
       <span class="c">::</span>
       bgins
       <span class="c">::</span>
     </a>
     <nav>
       {#each links as link}
-        <a class="link" class:active={isActive(link.href, $page.url.pathname)} href={link.href}>
+        <a
+          class="link"
+          class:active={isActive(link.href, $page.url.pathname)}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {link.label}
         </a>
       {/each}

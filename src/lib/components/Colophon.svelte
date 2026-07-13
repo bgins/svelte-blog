@@ -7,9 +7,11 @@
   <div id="inner">
     <div id="seal"><Device size={44} /></div>
     <nav>
-      <a href="/feed.xml">feed</a>
+      <a href="/feed.xml" target="_blank" rel="noopener noreferrer">feed</a>
       <span class="sep">·</span>
-      <a href="https://github.com/bgins/svelte-blog">source</a>
+      <a href="https://github.com/bgins/svelte-blog" target="_blank" rel="noopener noreferrer">
+        source
+      </a>
     </nav>
     <ThemeToggle />
     <div id="set">set in Literata &amp; Geist Mono · Svelte · S3</div>
@@ -43,7 +45,7 @@
   }
 
   #seal {
-    color: var(--ink);
+    color: var(--ink-muted);
     padding-bottom: 4px;
   }
 
