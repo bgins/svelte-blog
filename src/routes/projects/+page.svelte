@@ -1,5 +1,6 @@
 <script>
   import { page } from '$app/stores'
+  import Motto from '$lib/components/Motto.svelte'
 
   const numerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']
 
@@ -112,14 +113,20 @@
       </article>
     {/each}
   </div>
+
+  <Motto shown={false} />
 </div>
 
 <style>
+  /* flex column so the unseen motto can measure the foot (see Motto.svelte) */
   #layout {
+    display: flex;
+    flex-direction: column;
+
     box-sizing: border-box;
     width: 100%;
     max-width: 800px;
-    padding: 40px 30px;
+    padding: 40px 30px 0;
   }
 
   #content {

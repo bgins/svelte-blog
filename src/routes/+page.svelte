@@ -1,5 +1,6 @@
 <script>
   import { page } from '$app/stores'
+  import Motto from '$lib/components/Motto.svelte'
   import { formatDate } from '$lib/utils'
 
   /** @type {{ data: { posts: { slug: string, title: string, published: string }[] } }} */
@@ -70,14 +71,20 @@
       </a>
     {/each}
   </div>
+
+  <Motto shown={false} />
 </div>
 
 <style>
+  /* flex column so the unseen motto can measure the foot (see Motto.svelte) */
   #layout {
+    display: flex;
+    flex-direction: column;
+
     box-sizing: border-box;
     width: 100%;
     max-width: calc(38rem + 60px);
-    padding: 40px 30px;
+    padding: 40px 30px 0;
   }
 
   #content {
