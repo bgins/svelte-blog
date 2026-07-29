@@ -19,6 +19,8 @@
 </script>
 
 <script>
+  import { justify } from 'justif'
+  import { hyphenateEnUS } from 'justif/hyphenate/en-us'
   import { page } from '$app/stores'
   import Quincunx from '$lib/components/Quincunx.svelte'
   import { enhanceCode } from '$lib/actions/enhanceCode.js'
@@ -36,6 +38,19 @@
    * }}
    */
   let { title, description, published, image, imageAlt, imageAttribution, children } = $props()
+
+  /* Knuth-Plass justification over the prose. The CSS below sets native
+   * justify as the first paint and the no-script fallback; justif re-breaks
+   * each paragraph as a whole with TeX hyphenation and hanging punctuation.
+   * Paragraphs it cannot reproduce reliably are left on native layout. */
+  /** @type {HTMLElement | undefined} */
+  let content = $state()
+
+  $effect(() => {
+    if (!content) return
+    const controller = justify(content.querySelectorAll('p'), { hyphenate: hyphenateEnUS })
+    return () => controller.destroy()
+  })
 </script>
 
 <svelte:head>
@@ -66,7 +81,7 @@
     </figure>
   </div>
 
-  <div id="content" use:enhanceCode>
+  <div id="content" bind:this={content} use:enhanceCode>
     {@render children?.()}
   </div>
 
@@ -133,6 +148,12 @@
     gap: 18px;
 
     width: 100%;
+  }
+
+  /* the prose sets justified, as a book page would; justif upgrades this to
+     whole-paragraph breaking on the client */
+  #content :global(p) {
+    text-align: justify;
   }
 
   /* the versal — a rubricated initial opens the post */
