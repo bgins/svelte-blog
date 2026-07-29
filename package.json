@@ -46,6 +46,7 @@
     "@fontsource-variable/eb-garamond": "^5.2.7",
     "@fontsource-variable/literata": "^5.2.8",
     "@fontsource/geist-mono": "^5.2.8",
+    "justif": "^0.6.5",
     "uqr": "^0.1.3"
   }
 }
