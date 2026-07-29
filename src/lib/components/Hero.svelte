@@ -184,6 +184,13 @@
 
     transform-style: preserve-3d;
     transition: transform 0.7s cubic-bezier(0.4, 0.1, 0.2, 1);
+
+    /* iOS Safari builds the flip's compositing layers only when the transition
+       starts, and for a frame the uninitialized layer can flash dark against a
+       light page. will-change and the explicit face planes below build the
+       layers up front, and the faces are painted in the page color so anything
+       residual is invisible in either theme. */
+    will-change: transform;
   }
 
   .card.flipped {
@@ -197,11 +204,14 @@
   }
 
   .face {
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    background-color: var(--bg);
   }
 
   .face.front {
     position: relative;
+    transform: translateZ(0);
   }
 
   .face.back {
