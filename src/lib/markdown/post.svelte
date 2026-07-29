@@ -151,8 +151,12 @@
   }
 
   /* the prose sets justified, as a book page would; justif upgrades this to
-     whole-paragraph breaking on the client */
+     whole-paragraph breaking on the client. width pins the measure: the flex
+     column's start alignment would otherwise let each paragraph shrink to its
+     content, and justif's resize observer would chase its own layout in a
+     slow feedback drift. */
   #content :global(p) {
+    width: 100%;
     text-align: justify;
   }
 
